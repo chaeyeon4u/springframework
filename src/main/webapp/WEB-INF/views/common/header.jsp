@@ -14,8 +14,8 @@
    <body>
       <div class="d-flex flex-column vh-100">
          <nav class="navbar navbar-expand-sm bg-dark navbar-dark text-white font-weight-bold justify-content-between">
-            <a class="navbar-brand" href="./"> 
-               <img src="/resources/images/logo-spring.png" width="30" height="30" class="d-inline-block align-top">
+            <a class="navbar-brand" href="/"> 
+               <img src="${pageContext.request.contextPath}/resources/images/logo-spring.png" width="30" height="30" class="d-inline-block align-top">
                Spring
             </a>
             <div>
@@ -25,7 +25,7 @@
                </div>
             </div>
          </nav>
-   
+
          <div class="flex-grow-1 container-fluid">
             <div class="row h-100">
                <div class="col-md-4 p-3 bg-dark">
