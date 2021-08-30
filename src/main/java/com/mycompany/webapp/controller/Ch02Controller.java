@@ -18,56 +18,59 @@ public class Ch02Controller {
 
 	@RequestMapping(value="/content")//값 하나면 value생략가능
 	public String content() {
-		logger.info("/ch01/content 실행");
+		logger.info("/ch02/content 실행");
 		return "ch02/content";//이 view(jsp)를 실행해서 보여준다.
 	}
 	
 	//@GetMapping("/method")//방법1(요청방식이 Get이고, 경로가 /content/method)
 	@RequestMapping(value="/method", method=RequestMethod.GET)//방법2
 	public String method1() {
-		logger.info("/ch01/method1 실행");
+		logger.info("/ch02/method1 실행");
 		return "redirect:/ch02/content";//redirect 재요청 -> content() 재실행
 	}
 	
 	//@PostMapping("/method")
 	@RequestMapping(value="/method", method=RequestMethod.POST)
 	public String method2() {
-		logger.info("/ch01/method2 실행");
-		return "redirect:/ch02/content";
+		logger.info("/ch02/method2 실행");
+		return "redirect:/ch01/content";
 	}
 	
 	//@PutMapping("/method")
 	@RequestMapping(value="/method", method=RequestMethod.PUT)
 	public String method3() {
-		logger.info("/ch01/method3 실행");
+		logger.info("/ch02/method3 실행");
 		return "redirect:/ch02/content";
 	}
 	
 	//@DeleteMapping("/method")
 	@RequestMapping(value="/method", method=RequestMethod.DELETE)
 	public String method4() {
-		logger.info("/ch01/method4 실행");
+		logger.info("/ch02/method4 실행");
 		return "redirect:/ch02/content";
 	}
 	
+	////////////////////////// ModelAndView ////////////////////////////////////////////////////////////////////////////////
 	@GetMapping("/modelandview")//경로는 다 소문자로..
 	public ModelAndView method5(){//return형태가 String이 아닌 ModelAndView
 		logger.info("ModelAndView");
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("ch02/modelandview");
-		return modelAndView;
+		ModelAndView modelAndView = new ModelAndView();//ModelAndView 객체 생성
+		modelAndView.setViewName("ch02/modelandview");//ModelAndView 객체에 경로 넣기
+		return modelAndView;//ModelView 반환
 	}
 	
+	/////////////////////// Redirect와 Login ////////////////////////////////////////////////////////////////////////////////
 	@PostMapping("/login1")
 	public String login1(){
 		logger.info("실행");
-		return "ch02/loginResult";
+		return "ch02/loginResult";/* url이 return값으로 변경되지는 않는다! */
 	}
 	
+	/* redirect 사용하여 login */
 	@PostMapping("/login2")
 	public String login2(){
 		logger.info("실행");
-		return "redirect:/ch01/content";/*redirect : 뒤 경로로 재요청하라*/
+		return "redirect:/ch01/content";/* redirect : 뒤 경로로 재요청하라 -> url이 리턴의 경로로 변경된다. */
 	}
 	
 	@GetMapping("/boardlist")
@@ -78,7 +81,6 @@ public class Ch02Controller {
 	
 	@GetMapping("/boardwriteform")
 	public String boardWriteForm() {
-		
 		return "ch02/boardWriteForm";
 	}
 	

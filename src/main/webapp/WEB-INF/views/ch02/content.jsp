@@ -20,7 +20,7 @@
 				<button class="btn btn-info btn-sm" onclick="requestDelete()">DELETE 방식</button>
 			</div>
 			<script>
-				function requestGet(){
+				function requestGet(){//GET 방식과 ajax 방식을 사용한 요청
 					$.ajax({
 						//url: "/ch02/content",//이 경로로 요청
 						url: "${pageContext.request.contextPath}/ch02/method",//이 경로로 요청
@@ -28,6 +28,7 @@
 					})
 					.done((data) => {});
 				}
+				
 				function requestPost(){
 					$.ajax({
 						url: "${pageContext.request.contextPath}/ch02/method",//이 경로로 요청
@@ -53,20 +54,22 @@
 				}
 				</script>
 				
+				<!-------------------------------- ModelAndView 객체로 return------------------------------------->
 				<div class="card-header">
 					ModelAndVIew로 리턴!!
 				</div>
 				<div class="card-body">
-					<a class="btn btn-info btn-sm" href="${pageContext.request.contextPath}/ch02/modelandview">modelandview 요청!!</a>
+					<!-- a 태그는 GET방식으로만 요청 가능.. form은 GET, POST 방식 둘다 가능 -->
+					<a class="btn btn-info btn-sm" href="${pageContext.request.contextPath}/ch02/modelandview"> modelandview 요청!! </a>
 				</div>
-				
+				<!---------------------------------- Redirect 처리 방식 ----------------------------------------------->
 				<div class="card-header">
 					Redirect
 				</div>
 				<div class="card-body">
-					<!--form은 GET,POST만 올 수 있다! -->
-					<%-- <form method="POST" action="/ch02/login1"> --%><!-- %붙이면 jsp주석으로, 클라이언트(브라우저에)에 주석이 안보인다 -->
-					<form method="POST" action="${pageContext.request.contextPath} /ch02/login2">
+					<!-- form은 GET, POST만 올 수 있다! -->
+					<!-- <form method="POST" action="/ch02/login1"> --><!-- %붙이면 jsp주석으로, 클라이언트(브라우저에)에 주석이 안보인다 -->
+					<form method="POST" action="${pageContext.request.contextPath}/ch02/login2">
 					  <div class="form-group">
 					    <label for="exampleInputEmail1">Email address</label>
 					    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -83,6 +86,7 @@
 					  <button type="submit" class="btn btn-primary btn-sm">Login</button>
 					</form>
 					<hr/>
+					
 					<!-- 상대경로 "/"로 시작하지 않는다.-->
 					<a class="btn btn-info btn-sm" href="boardlist">게시물 목록//링크로 요청 : GET방식!</a>
 					<a class="btn btn-info btn-sm" href="boardwriteform">게시물 작성</a>

@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%-- <%@ %>안에는 page, include 등.. 작성 --%>
+<%-- <%@ %> 안에는 page, include 등.. 작성 --%>
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 
 <div class="card m-2">

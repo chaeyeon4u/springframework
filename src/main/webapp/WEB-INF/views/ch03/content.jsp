@@ -13,7 +13,7 @@
          </div>
          <div class="card-body">
             <a class="btn btn-info btn-sm" 
-            href="method1?param1=문자열&param2=5&param3=3.14&param4=true&param5=2021-08-27">요청</a>
+            	href="method1?param1=문자열&param2=5&param3=3.14&param4=true&param5=2021-08-27">요청</a>
             <hr/>
             <form method="get" action="method1">
                    <div class="input-group">
@@ -24,7 +24,7 @@
                       <div class="input-group-prepend"><span class="input-group-text">param2</span></div>
                       <input type="text" name="param2" class="form-control" value="5">
                    </div>
-                   <div class="input-group">
+					<div class="input-group">
                       <div class="input-group-prepend"><span class="input-group-text">param3</span></div>
                       <input type="text" name="param3" class="form-control" value="3.14">
                    </div>
@@ -49,6 +49,7 @@
       </div>
    </div>
 </div>
+
 
 <div class="card m-2">
    <div class="card-header">
@@ -91,6 +92,8 @@
                    <input class="mt-2 btn btn-info btn-sm" type="submit" value="요청"/>
                 </form>
          </div>
+         
+         
          <div class="card m-2">
          <div class="card-header">
             AJAX 방식으로 요청
@@ -146,7 +149,7 @@
                   }
                })
                .done(() => {});
-            }*/
+            } */
             
             function requestGet() {
                // element에 해당하는 value 가져오기

@@ -13,6 +13,10 @@
 	<annotation-driven />
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<!-- 'contextroot/resources로 요청이 들어오면, 경로와 매핑시켜서 브라우저로 보내라.'라는 의미 
+		여러개 넣을 수 있다.
+		이 경로 말고는 Controller에서 접근해야한다. 
+		'/**' 의미 : 뒤의 경로는 상관없이 -->
 	<resources mapping="/resources/**" location="/resources/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
@@ -22,7 +26,5 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.mycompany.webapp" />
-	
-	
 	
 </beans:beans>
