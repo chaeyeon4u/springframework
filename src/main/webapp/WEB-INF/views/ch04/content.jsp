@@ -200,7 +200,7 @@
 	                   	 const pattern = /[0-9]{4}[0-1]{1}[1-9]{1}[0-3]{1}[0-9]{1}/i;
 	                	 const result = pattern.test(param2);
 	                	 if(result === false){
-	                		 param2Error.innerHTML = "유효하지 생년월일";
+	                		 param2Error.innerHTML = "유효하지 않은 생년월일";
 	                		 checkResult = false;
 	                	 }
 	                }
@@ -223,12 +223,13 @@
             </script>
         </div>
         
+        <!-- 서버측 유효성검사 시작 ----------------------------------------------------------------------------------------- -->
         <div class="card m-2">
             <div class="card-header">
                 서버측 유효성 검사
             </div>
             <div class="card-body">
-            	<form method="post" action="method2">
+            	<form method="post" action="method2" onsubmit="checkData3(this)">
                     <div class="input-group">
                        <div class="input-group-prepend"><span class="input-group-text">mid</span></div>
                        <input type="text" name="mid" class="form-control" value="${joinForm.mid}" autocomplete="current-password">
@@ -253,6 +254,13 @@
                  </form>
            </div>
           </div>
+          
+          <script>
+          	function checkData3(form){
+          		event.preventDefault();
+          	}
+          </script>
+          
     </div>
 </div>
 

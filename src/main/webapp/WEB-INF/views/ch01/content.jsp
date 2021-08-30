@@ -9,7 +9,7 @@
 	</div>
 	<div class="card-body">
 	<!-- resources 경로는 controller 실행하지 않고, 사용자에게 보여준다. -->
-	<img src="${pageContent.request.contextPath}/resources/images/logo-spring.png"/>
+	<img src="${pageContext.request.contextPath}/resources/images/logo-spring.png"/>
 	<hr/>
 		1. STS 설치<br/>
 		2. Plug-in 설치<br/>
