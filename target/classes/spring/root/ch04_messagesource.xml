@@ -4,8 +4,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	
 	<!-- 에러 및 국제화 메시지를 위한 ResourceBundleMessageSource 관리빈 등록  -->
+   
+   <!-- error message properties 부분 -->
    <bean id="messageSource"
       class="org.springframework.context.support.ResourceBundleMessageSource">   
       <property name="basenames">

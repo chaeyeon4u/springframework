@@ -39,6 +39,7 @@ public class Ch04Controller {
 		return "redirect:/ch04/content";
 	}
 	
+	/* @Valid 로 검증이 필요한 객체를 가져오기 전에 수행할 method를 지정 */
 	@InitBinder("joinForm")
 	public void joinFormSetValidator(WebDataBinder binder) {
 		logger.info("실행");
@@ -52,10 +53,11 @@ public class Ch04Controller {
 		);//자바에서 ...은 가변길이 매개변수라는 뜻
 	}
 	
-	//@ModelAttribute 없을 경우 : Ch04Member -> ch04Member라는 이름으로 관리함 (@InitBinder) //첫자 소문자
+	//@ModelAttribute 없을 경우 : Ch04Member -> ch04Member라는 이름으로 관리함 (@InitBinder("Ch04Member")) //첫자 소문자
 	//@ModelAttribute 있을 경우 : joinForm 이라는 이름으로 관리함
+	//BindingResult bindingResult -> Errors errors 대체 가능
 	@PostMapping("/method2")
-	public String join(@ModelAttribute("joinForm") @Valid Ch04Member member, BindingResult bindingResult) {//BindingResult bindingResult -> Errors errors 대체 가능
+	public String join(@ModelAttribute("joinForm") @Valid Ch04Member member, BindingResult bindingResult) {
 		logger.info("실행");
 		if(bindingResult.hasErrors()) {
 			logger.info("다시 입력폼 제공 + Erro 메시지");

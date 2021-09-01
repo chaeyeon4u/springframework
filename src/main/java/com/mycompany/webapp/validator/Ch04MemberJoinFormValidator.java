@@ -17,9 +17,10 @@ public class Ch04MemberJoinFormValidator implements Validator{
 	@Override
 	public boolean supports(Class<?> clazz) {
 		logger.info("실행");
-		//데이터에 대한 유효성 검사 가능시 true, 불가시 false
-		// clazz라는 클래스가 Ch04Member로 검증될 수 있냐? 
-		// => clazz가 Ch04Member의 최소 자식 객체거나 같은 객체이냐?
+		/* support 성공시 validate 실행
+		 데이터에 대한 유효성 검사 가능시 true, 불가시 false
+		 clazz라는 클래스가 Ch04Member로 검증될 수 있냐? 
+		 => clazz가 Ch04Member의 최소 자식 객체거나 같은 객체이냐?*/
 		boolean check = Ch04Member.class.isAssignableFrom(clazz);
 		return check;
 	}
@@ -69,7 +70,7 @@ public class Ch04MemberJoinFormValidator implements Validator{
 		if(member.getMtel() == null || member.getMtel().trim().equals("")) {
 			errors.rejectValue("mtel", "errors.mtel.required");
 		}else {
-			String regex = "\\d{3}-\\d{3,4}-\\d{4}$";//javascript는 ""아니고 //
+			String regex = "\\d{3}-\\d{3,4}-\\d{4}$";
 			Pattern pattern = Pattern.compile(regex);
 			Matcher matcher = pattern.matcher(member.getMtel());
 			
