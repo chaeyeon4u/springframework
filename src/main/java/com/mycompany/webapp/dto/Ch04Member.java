@@ -7,6 +7,15 @@ public class Ch04Member {
 	private String memail;
 	private String mtel;
 	
+	//private String city;
+	private Ch07City city;
+	
+	public Ch07City getCity() {
+		return city;
+	}
+	public void setCity(Ch07City city) {
+		this.city = city;
+	}
 	public String getMid() {
 		return mid;
 	}
