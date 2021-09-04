@@ -11,7 +11,7 @@
 		Session Support
 	</div>
 	<div class="card-body">
-		<div class="card m-2">
+		<div class="card">
 			<div class="card-header">
 					세션 원리 : JESSIONID 쿠키
 			</div>
@@ -38,11 +38,102 @@
 					data: {name: "홍길동"}
 				}).done((data) => {
 					console.log(data);//객체가 파싱되어 온다.//name: "홍길동"
-					console.log(data.name)
+					console.log(data.name);
 				});
 			}
 		</script>
 		
+		<div class="card">
+			<div class="card-header">
+				form을 통한 login 처리
+			</div>
+			<div class="card-body">
+				<c:if test="${sessionMid == null}">
+					<a href="login" class="btn btn-info btn-sm">로그인 폼 요청</a>
+				</c:if>
+				<c:if test="${sessionMid != null}">
+					<a href="logout" class="btn btn-info btn-sm">로그아웃</a>
+				</c:if>
+			</div>
+		</div>
+		
+		<div class="card">
+			<div class="card-header">
+				@SessionAttribute를 이용한 다단계 입력 처리
+			</div>
+			<div class="card-body">
+				<a href="inputStep1" class="btn btn-info btn-sm">1단계 입력</a>
+			</div>
+		</div>
+		
+		
+		<div class="card">
+			<div class="card-header">
+				ajax을 통한 login 처리
+			</div>
+			<div class="card-body">
+					<form method="post" action="login">
+			            <div class="input-group">
+			               <div class="input-group-prepend"><span class="input-group-text">mid</span></div>
+			               <input id="mid" type="text" name="mid" class="form-control" value="spring">
+			            	<span id="mid-error" classs="error"></span>
+			            </div>
+			            <div class="input-group">
+			               <div class="input-group-prepend"><span class="input-group-text">mpassword</span></div>
+			               <input id="mpassword" type="password" name="mpassword" class="form-control" value="12345">
+			            	<span id="mpassword-error" classs="error"></span>
+			            </div>
+		         	</form>
+				<div>
+					<c:if test="${sessionMid == null}">
+						<a href="javascript:login()" class="btn btn-info btn-sm">로그인 폼 요청</a>
+					</c:if>
+					<c:if test="${sessionMid != null}">
+						<a href="javascript:logout()" class="btn btn-info btn-sm">로그아웃</a>
+					</c:if>
+				</div>
+				<script>
+					function login(){
+						let mid = ${"mid"}.val();
+						let mpassword=$("#mpassword").val();
+						$.ajax({
+							url: "loginAjax",
+							data: {mid:mid, mpassword:mpassword},//변수명과 데이터가 같으면 생략가능
+							method: "post"
+						}).done((data)) => {
+							//data = {result:"success"}
+							//data = {result: "wrongMid"}
+							//data = {result: "wrongMpassword"}
+							
+							const midError = ${"#mid-error"};
+							const mpasswordError =  ${"#mpassword-error"};
+							mpasswordError.html("");
+							
+							if(data.result ==="success" ){
+								window.location.reload();
+							}else if(data.result ==="wrongMid" ){
+								//현재 페이지에서 다시 로드한다.
+								
+								midError.html("아이디가 잘못됨");
+							}else if(data.result ==="wrongMpassword" ){
+								mpasswordError.html("비밀번호가 잘못됨");
+							}
+
+						};
+					}
+					
+					function logout(){
+						$.ajax({
+							url:"logoutAjax"
+						}).done((data)=>{
+							//data = {result:"success"}
+							
+							window.location.reload();
+						})
+					}
+				</script>
+			</div>
+		</div>
 	</div>
 </div>
 
