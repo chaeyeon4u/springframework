@@ -51,5 +51,10 @@
 			<span class="mr-2">Ch010.</span><a class="text-white" href="${pageContext.request.contextPath}/ch10/content">Controller/Exception Handling</a>
 		</h6> 
 	</li>
+	<li class="nav-item mb-2">
+		<h6 class="text-white">
+			<span class="mr-2">Ch011.</span><a class="text-white" href="${pageContext.request.contextPath}/ch11/content">View/Spring Tag Library</a>
+		</h6> 
+	</li>
 	
 </ul>
