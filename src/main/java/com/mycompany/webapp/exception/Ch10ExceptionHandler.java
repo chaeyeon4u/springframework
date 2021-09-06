@@ -38,4 +38,10 @@ public class Ch10ExceptionHandler {
 		return "error/500";
 	}
 	
+	@ExceptionHandler
+	public String handleException(Ch10SoldOutException e) {//Exception으로 해도 괜찮음
+		logger.info("실행");
+		return "error/soldout";
+	}
+	
 }

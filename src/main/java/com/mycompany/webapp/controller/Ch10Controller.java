@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.mycompany.webapp.exception.Ch10SoldOutException;
+
 @Controller
 @RequestMapping("/ch10")
 public class Ch10Controller {
@@ -67,5 +69,17 @@ public class Ch10Controller {
 		return "redirect:/ch10/content";
 	}
 	
+	@RequestMapping("/handlingException5")
+	public String handlingException5(){//그냥 예외가 발생하도록 놔둔 뒤 ExceptionHandler로 처리 처리
+		//try-catch로 잡히지 않는 error -> RuntimeError
+		logger.info("실행");
+		int stock = 0;
+		if(stock == 0) {
+			throw new Ch10SoldOutException("상품 재고가 없습니다.");//error 발생// try-catch, throws 안쓰려면 RuntimeException로 만들라
+		}
+		
+		
+		return "redirect:/ch10/content";
+	}
 	
 }
