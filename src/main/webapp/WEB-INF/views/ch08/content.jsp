@@ -13,7 +13,7 @@
 	<div class="card-body">
 		<div class="card">
 			<div class="card-header">
-					세션 원리 : JESSIONID 쿠키
+				세션 원리 : JESSIONID 쿠키
 			</div>
 			<div class="card-body">
 				<p>서버 : 세션 객체 생성->JESSION 쿠키 발생</p>

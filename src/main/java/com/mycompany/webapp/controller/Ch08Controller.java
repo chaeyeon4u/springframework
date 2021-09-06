@@ -27,6 +27,7 @@ public class Ch08Controller {
    
    @RequestMapping("/content")
    public String content() {
+	  logger.info("실행");
       return "ch08/content";
    }
    
@@ -41,7 +42,7 @@ public class Ch08Controller {
       
       JSONObject jsonObject = new JSONObject();
       jsonObject.put("result", "success");
-      String json = jsonObject.toString(); // {"result":"success"}
+      String json = jsonObject.toString(); //{"result":"success"}
       return json;
    }
 
