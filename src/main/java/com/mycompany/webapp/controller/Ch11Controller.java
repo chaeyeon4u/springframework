@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.mycompany.webapp.dto.Ch11City;
 import com.mycompany.webapp.dto.Ch11Member;
 
 
@@ -61,6 +62,27 @@ public class Ch11Controller {
 	      
 	      // 기본 선택 항목을 설정
 	      member.setMtype("기업회원");
+	      
+	      //드롭다운리스트의 항목을 추가할 목적
+	      List<String> jobList = new ArrayList<>();
+	      jobList.add("학생");
+	      jobList.add("개발자");
+	      jobList.add("디자이너");
+	      model.addAttribute("jobList", jobList);
+	      
+	      //기본 선택 항목을 설정
+	      member.setMjob("개발자");
+	      
+	      
+	      //드롭다운리스트의 항목을 추가할 목적
+	      List<Ch11City> cityList = new ArrayList();
+	      cityList.add(new Ch11City(1, "서울"));
+	      cityList.add(new Ch11City(2, "부산"));
+	      cityList.add(new Ch11City(3, "제주"));
+	      model.addAttribute("cityList", cityList);
+	      
+	      //default값 제주로 생성
+	      member.setMcity(3);
 	      
 	      return "ch11/form2";
 	   }
