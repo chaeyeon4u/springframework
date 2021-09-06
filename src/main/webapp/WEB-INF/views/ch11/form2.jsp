@@ -66,7 +66,7 @@
         
         <div class="form-group">
           <label for="mcity">City</label><!-- for은 id값 path에 넣으면 아이디 자동생성 -->
-          <!-- path="mcity"는 form태그의 modelAttribute="member"에서 온 값이다. -->
+          <!-- path="mcity"는 form태그의 modelAttribute = "member"에서 온 값이다. -->
           <form:select path="mcity" items="${cityList}" itemValue="code" itemLabel="label" class="form-control"/>
         </div>
         
