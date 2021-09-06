@@ -22,12 +22,14 @@ public class Ch10ExceptionHandler {
 	@ExceptionHandler
 	public String handleNullPointerException(NullPointerException e) {
 		logger.info("실행");
+		e.printStackTrace();
 		return "error/500_null";
 	}
 	
 	@ExceptionHandler
 	public String handleClassCastException(ClassCastException e) {
 		logger.info("실행");
+		e.printStackTrace();
 		return "error/500_cast";
 	}
 	
@@ -35,12 +37,14 @@ public class Ch10ExceptionHandler {
 	@ExceptionHandler
 	public String handleException(RuntimeException e) {//Exception으로 해도 괜찮음
 		logger.info("실행");
+		e.printStackTrace();
 		return "error/500";
 	}
 	
 	@ExceptionHandler
 	public String handleException(Ch10SoldOutException e) {//Exception으로 해도 괜찮음
 		logger.info("실행");
+		e.printStackTrace();
 		return "error/soldout";
 	}
 	

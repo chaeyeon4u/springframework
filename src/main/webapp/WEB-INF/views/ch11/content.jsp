@@ -19,6 +19,14 @@
 				<a href="form1" class="btn btn-info btn-sm">form1</a>
 			</div>
 		</div>
+		<div class="card m-2">
+			<div class="card-header">
+				DTO 객체의 필드값을 양식의 데이터로 세팅
+			</div>
+			<div class="card-body">
+				<a href="form2" class="btn btn-info btn-sm">form2</a>
+			</div>
+		</div>
 	</div>
 </div>
 
