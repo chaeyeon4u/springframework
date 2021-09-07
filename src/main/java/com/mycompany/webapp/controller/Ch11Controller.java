@@ -146,15 +146,19 @@ public class Ch11Controller {
 	public String handleForm3(@ModelAttribute("member") Ch11Member member, Model model) {
 		logger.info("실행");
 		
-		if(member.getMlanguage()!=null) {
+		if(member.getMlanguage() != null) {
 			for(String lang: member.getMlanguage()){
-				logger.info("lang: "+lang);
+				logger.info("lang: " + lang);
 			}
 		}
 		
-		for(String lang: member.getMlanguage()) {
-			logger.info("lang: " + lang);
+		if(member.getMskill() != null) {
+			System.out.println("mskill: " + Arrays.toString(member.getMskill()));
 		}
+		
+		/*for(String lang: member.getMlanguage()) {
+			logger.info("lang: " + lang);
+		}*/
 		
 		System.out.println("mskill: "+ Arrays.toString(member.getMskill()));
 		
