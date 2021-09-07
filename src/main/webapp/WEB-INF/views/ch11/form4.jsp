@@ -9,7 +9,7 @@
 
 <div class="card m-2">
 	<div class="card-header">
-		DTO 객체의 필드값을 양식의 드롭다운리스트(checkbox 태그)로 세팅
+		DTO 객체의 필드값을 양식의 드롭다운리스트(RADIO 태그)로 세팅
 	</div>
 	<div class="card-body">
 		<form method="get" action="form3">
@@ -17,10 +17,10 @@
 				<c:forEach var="job" items="${jobList}" varStatus="status">
 					<span style="margin:0; padding:0;">
 						<input type="radio" class="ml-2" type="radio" 
-				  		 id="lang${job}" name="mjob" value="${job}"
-				  		 	<c:if test="${temp == job}">checked</c:if>
+				  		 id="lang${status.count}" name="mjob" value="${job}"
+				  		 	<c:if test="${member.mjob == job}">checked</c:if>
 				  		 />
-				  		 <labe style="margin:0; padding:0;" for="lang1">${job}</label>
+				  		 <label style="margin:0; padding:0;" for="lang${status.count}">${job}</label>
 				  	</span>
 				</c:forEach>
 			</div>
@@ -30,7 +30,7 @@
 		<form:form modelAttribute="member" method="post" action="form3">
 			<div>
 				<form:radiobuttons items="${cityList}" path="mcity" 
-								class="ml-2"/>
+								itemValue="code" itemLabel="label" class="ml-2"/>
 			</div>
 			<button class="btn btn-info btn-sm">제출</button>
 		</form:form>
