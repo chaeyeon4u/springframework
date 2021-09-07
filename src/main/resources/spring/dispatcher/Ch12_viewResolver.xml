@@ -5,11 +5,20 @@
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<!-- ViewName을 JSP 경로로 해석 -->
+	<!-- bean 에 id나 name이 없으면, internalResourceViewResolver라는 이름으로 관리 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="order" value="1"></property>
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	
+	
+	<!-- 얘 어디서왔누 -->
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<!--<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean> -->
 	
 	<!-- ViewName을 객체 이름으로 해석 -->
 	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
