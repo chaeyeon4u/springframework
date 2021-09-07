@@ -12,24 +12,32 @@
 		DTO 객체의 필드값을 양식의 드롭다운리스트(checkbox 태그)로 세팅
 	</div>
 	<div class="card-body">
-		<%-- <form>
-			<c:forEach var="language" items="${languageList}" varStatus="status">
-			<div class="form-check form-check-inline">
-				<!-- varStatus의 count는 1부터 시작한다. -->
-			  <input class="form-check-input" type="checkbox" 
-			  		 id="lang${status.count}" name="mlanguage" value="${language}"
-			  		 <c:forEach var="temp" items="${member.mlanguage}">
-			  		 	<c:if test="${temp == language}">checked</c:if>
-			  		 </c:forEach>
-			  		 >
-			  <label class="form-check-label" for="lang1">${language}</label>
+		<form method="get" action="form3">
+			<div>
+				<c:forEach var="language" items="${languageList}" varStatus="status">
+					<span style="margin:0; padding:0;">
+						<input class="ml-2" type="checkbox" 
+				  		 id="lang${status.count}" name="mlanguage" value="${language}"
+				  		 <c:forEach var="temp" items="${member.mlanguage}">
+				  		 	<c:if test="${temp == language}">checked</c:if>
+				  		 </c:forEach>/>
+				  		 <labe style="margin:0; padding:0;" for="lang1">${language}</label>
+				  	</span>
+				</c:forEach>
 			</div>
-			</c:forEach>
-		</form> --%>
+		</form> 
 		
 		<form:form modelAttribute="member" method="post" action="form3">
 			<div>
-				<form:checkboxes items="${languageList}" path="mlanguage" cssClass="ml-3 mr-1"/>
+				<form:checkboxes items="${languageList}" path="mlanguage" 
+								class="ml-2"/>
+			</div>
+		</form:form>
+		
+		<form:form modelAttribute="member" method="post" action="form3">
+			<div>
+				<form:checkboxes items="${skillList}" path="mskill" 
+								class="ml-2" itemValue="code" itemLabel="label"/>
 			</div>
 		</form:form>
 	</div>
