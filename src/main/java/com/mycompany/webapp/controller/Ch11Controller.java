@@ -2,6 +2,7 @@ package com.mycompany.webapp.controller;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -87,6 +88,16 @@ public class Ch11Controller {
 	      
 	      return "ch11/form2";
 	   }
+	
+	
+		/*@PostMapping("/form2")
+		pulbic String handleForm2(@ModelAttribute("member") Ch11Member member, Model model){
+			logger.info("실행");
+			logger.info("mtype: "+member.getMtype());
+			logger.info("mjob: "+member.getMjob());
+			logger.info("mcity: "+member.getMcity());
+			return "redirect:/ch11/content";
+		}*/
 
 	/*@GetMapping("/form2")
 	public String form2(@ModelAttribute("member") Ch11Member member, Model model) {//Dto를 매개변수로 사용하면 자동으로 소문자로한 이름으로 관리된다.
@@ -107,7 +118,7 @@ public class Ch11Controller {
 	
 	
 	@GetMapping("/form3")
-	   public String form3(@ModelAttribute("member") Ch11Member member, Model model) {
+	public String form3(@ModelAttribute("member") Ch11Member member, Model model) {
 	      logger.info("실행");
 	      
 	      List<String> languageList = new ArrayList<>();
@@ -130,4 +141,66 @@ public class Ch11Controller {
 	      
 	      return "ch11/form3";
 	}
+	
+	@PostMapping("/form3")
+	public String handleForm3(@ModelAttribute("member") Ch11Member member, Model model) {
+		logger.info("실행");
+		
+		if(member.getMlanguage()!=null) {
+			for(String lang: member.getMlanguage()){
+				logger.info("lang: "+lang);
+			}
+		}
+		
+		for(String lang: member.getMlanguage()) {
+			logger.info("lang: " + lang);
+		}
+		
+		System.out.println("mskill: "+ Arrays.toString(member.getMskill()));
+		
+		return "redirect:/ch11/content";
+	}
+	
+	@GetMapping("/form4")
+	public String form4(@ModelAttribute("member") Ch11Member member, Model model) {
+	      logger.info("실행");
+	      
+	    //드롭다운리스트의 항목을 추가할 목적
+	      List<String> jobList = new ArrayList<>();
+	      jobList.add("학생");
+	      jobList.add("개발자");
+	      jobList.add("디자이너");
+	      model.addAttribute("jobList", jobList);
+	      
+	      //기본 선택 항목을 설정
+	      member.setMjob("개발자");
+	      
+	      
+	      //드롭다운리스트의 항목을 추가할 목적
+	      List<Ch11City> cityList = new ArrayList();
+	      cityList.add(new Ch11City(1, "서울"));
+	      cityList.add(new Ch11City(2, "부산"));
+	      cityList.add(new Ch11City(3, "제주"));
+	      model.addAttribute("cityList", cityList);
+	      
+	      //default값 제주로 생성
+	      member.setMcity(3);
+	      
+	      return "ch11/form4";
+	}
+	
+	@PostMapping("/form4")
+	public String handleForm4(@ModelAttribute("member") Ch11Member member, Model model) {
+		logger.info("실행");
+		
+		logger.info("mjob: "+ member.getMjob());
+		for(String lang: member.getMlanguage()) {
+			logger.info("lang: " + lang);
+		}
+		
+		System.out.println("mskill: "+ Arrays.toString(member.getMskill()));
+		
+		return "redirect:/ch11/content";
+	}
+
 }

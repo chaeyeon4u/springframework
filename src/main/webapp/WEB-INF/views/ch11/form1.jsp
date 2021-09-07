@@ -15,19 +15,19 @@
 		<form:form method="post" modelAttribute="member">
 		  <div class="form-group">
 		    <label for="mid">ID</label>
-		    <from:input type="text" class="form-control" id="mid" path="mid"/> <!-- form일때는 name이 있어야 서버로 전송이된다. -->
+		    <from:input type="text" class="form-control"  path="mid"/> <!-- form일때는 name이 있어야 서버로 전송이된다. path가 id와 name으로 들어간다 -->
 		  </div>
 		  <div class="form-group">
 		    <label for="mname">Name</label>
-		    <form:input type="text" class="form-control" id="mname" path="mname"/>
+		    <form:input type="text" class="form-control"  path="mname"/>
 		  </div>
 		  <div class="form-group">
 		    <label for="mpassword">Password</label>
-		    <form:password class="form-control" id="mpassword" path="mpassword"/>
+		    <form:password class="form-control"  path="mpassword"/>
 		  </div>
 		  <div class="form-group">
 		    <label for="mnation">Nation</label>
-		    <form:input type="text" class="form-control" id="mnation" path="mnation"/><!-- 끝태그 있어야함 -->
+		    <form:input type="text" class="form-control" path="mnation"/><!-- 끝태그 있어야함 -->
 		  </div>
 		  <button type="submit" class="btn btn-primary">Submit</button>
 		</form:form>

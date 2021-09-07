@@ -14,35 +14,33 @@
 	<div class="card-body">
 		<form method="get" action="form3">
 			<div>
-				<c:forEach var="language" items="${languageList}" varStatus="status">
+				<c:forEach var="job" items="${jobList}" varStatus="status">
 					<span style="margin:0; padding:0;">
-						<input class="ml-2" type="checkbox" 
-				  		 id="lang${status.count}" name="mlanguage" value="${language}"
-				  		 <c:forEach var="temp" items="${member.mlanguage}">
-				  		 	<c:if test="${temp == language}">checked</c:if>
-				  		 </c:forEach>/>
-				  		 <labe style="margin:0; padding:0;" for="lang1">${language}</label>
+						<input type="radio" class="ml-2" type="radio" 
+				  		 id="lang${job}" name="mjob" value="${job}"
+				  		 	<c:if test="${temp == job}">checked</c:if>
+				  		 />
+				  		 <labe style="margin:0; padding:0;" for="lang1">${job}</label>
 				  	</span>
 				</c:forEach>
 			</div>
 			<button class="btn btn-info btn-sm">제출</button>
 		</form> 
 		
-		<form:form modelAttribute="member" method="post" action="form3" class="mt-3">
+		<form:form modelAttribute="member" method="post" action="form3">
 			<div>
-				<form:checkboxes items="${languageList}" path="mlanguage" 
+				<form:radiobuttons items="${cityList}" path="mcity" 
 								class="ml-2"/>
 			</div>
 			<button class="btn btn-info btn-sm">제출</button>
 		</form:form>
 		
-		<form:form modelAttribute="member" method="post" action="form3" class="mt-3">
+		<%-- <form:form modelAttribute="member" method="post" action="form3">
 			<div>
-				<form:checkboxes items="${skillList}" path="mskill" 
+				<form:radiobuttons items="${skillList}" path="mskill" 
 								class="ml-2" itemValue="code" itemLabel="label"/>
 			</div>
-			<button class="btn btn-info btn-sm">제출</button>
-		</form:form>
+		</form:form> --%>
 	</div>
 </div>
 

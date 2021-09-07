@@ -8,7 +8,7 @@
    </div>
    <div class="card-body">
        
-      <%-- <form>
+      <%-- <form method="post" action="form2">
         <div class="form-group">
           <label for="mtype">Type</label>
           <select class="form-control" id="mtype" name="mtype">
