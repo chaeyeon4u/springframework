@@ -6,7 +6,14 @@ import org.slf4j.LoggerFactory;
 public class Ch13BoardDao1 {
 	private static final Logger logger = LoggerFactory.getLogger(Ch13BoardDao1.class);
 
+	
 	public Ch13BoardDao1() {
 		logger.info("실행");
 	}
+		
+	public void update() {//이 메서드는 ch13service1에서 이용
+		logger.info("실행");
+	}
+	
+	
 }
