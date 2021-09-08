@@ -22,16 +22,19 @@ public class Ch13Controller {
 	private Ch13Service1 ch13Service1;//객체 없으면 nullpointException-> 의존성 주입 일어나야함
 	
 	//@Autowired
-	@Resource
+	@Resource//첫자를 소문자로한 이름으로 관리
 	private Ch13Service2 ch13Service2;
 	
-	@Resource
+	//이름을 객체찾아 주입
+	//ch13Service인터페이스를 상속받는 클래스가 2개이므로 name을 준다.
+	@Resource(name="ch13Service4")
 	private Ch13Service ch13Service;
 	
 	/* @Controller 선언-> 직접 만들어짐 -> 다른 생성자 못만듦-> 오로지 setter 주입만 만듦
 	 * public Ch13Controller() {
 		logger.info("실행");
 	}*/
+	
 	
 	public Ch13Controller() {
 		logger.info("실행");
