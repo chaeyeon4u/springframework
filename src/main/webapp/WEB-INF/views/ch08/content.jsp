@@ -81,20 +81,20 @@
 			            <div class="input-group">
 			               <div class="input-group-prepend"><span class="input-group-text">mpassword</span></div>
 			               <input id="mpassword" type="password" name="mpassword" class="form-control" value="12345">
-			            	<span id="mpassword-error" classs="error"></span>
+			               <span id="mpassword-error" classs="error"></span>
 			            </div>
 		         	</form>
-				<div>
-					<c:if test="${sessionMid == null}">
-						<a href="javascript:login()" class="btn btn-info btn-sm">로그인 폼 요청</a>
-					</c:if>
-					<c:if test="${sessionMid != null}">
-						<a href="javascript:logout()" class="btn btn-info btn-sm">로그아웃</a>
-					</c:if>
-				</div>
+					<div>
+						<c:if test="${sessionMid == null}">
+							<a href="javascript:login()" class="btn btn-info btn-sm">로그인 폼 요청</a>
+						</c:if>
+						<c:if test="${sessionMid != null}">
+							<a href="javascript:logout()" class="btn btn-info btn-sm">로그아웃</a>
+						</c:if>
+					</div>
 				<script>
 					function login(){
-						let mid = ${"mid"}.val();
+						let mid = $("mid").val();
 						let mpassword=$("#mpassword").val();
 						$.ajax({
 							url: "loginAjax",
@@ -105,9 +105,10 @@
 							//data = {result: "wrongMid"}
 							//data = {result: "wrongMpassword"}
 							
-							const midError = ${"#mid-error"};
-							const mpasswordError =  ${"#mpassword-error"};
+							const midError = $("#mid-error");
+							const mpasswordError =  $("#mpassword-error");
 							mpasswordError.html("");
+							midError.html("");
 							
 							if(data.result ==="success" ){
 								window.location.reload();

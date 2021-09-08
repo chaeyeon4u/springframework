@@ -73,7 +73,7 @@ public class Ch09Controller {
 		
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("result", "success");
-		jsonObject.put("savedname", "savedname");
+		jsonObject.put("savedname", savedname);
 		String json = jsonObject.toString();
 		
 		return json;

@@ -12,16 +12,15 @@
         <div id="fileList"></div>
     </div>
     <script>
-    $(function() { /* 브라우저가 파일을 해석 완료하면 실행되는 함수 */
+    $(function() {
         $.ajax({
             url: "fileList"
         }).done(data => {
-            // data = {totalFileNum:10, fileList:["photo1.jpg", "photo2.jpg", ...]}
             $("#totalFileNum").html(data.totalFileNum);
             var ulTag = "<ul>";
             for(var i=0; i<data.fileList.length; i++) {
                 ulTag += "<li>";
-                ulTag += "<a href='fileDownload?fileName=" + data.fileList[i] + "'>" + data.fileList[i] + "</a>"
+                ulTag += "<a href='fileDownload?fileName="+data.fileList[i]+"'>"+data.fileList[i] + "</a>"
                 ulTag += "</li>";
             }
             ulTag += "</ul>";

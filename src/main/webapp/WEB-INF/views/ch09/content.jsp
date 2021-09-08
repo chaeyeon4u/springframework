@@ -41,7 +41,7 @@
 					//files[0] : 원래는 파일 하나만 선택가능 여러개 못함
 					//multiple="multiple" -> 여러개 선택 가능
 					// 하나만 선택하도록 [0]
-					const attach = document.querySelector("#attach").files[0];//$("#attach")[0];
+					const attach = document.querySelector("#attach").files[0];
 					console.log(attach);
 					
 					//Multipart/form-data
@@ -53,9 +53,9 @@
 					//Ajax로 서버로 전송
 					$.ajax({
 						url: "fileuploadAjax",
-						method: "post",//무저건 파일은 post
+						method: "post",//무조건 파일은 post
 						data: formData,
-						cache: false,
+						cache: false,// 용량이 다소 큰 이미지 파일을 브라우저에 캐시로 저장하면 자원 낭비니까
 						processData: false,//false이면 fileData는 Binary데이터라 가공처리 하지말고 있는 그대로 전달한다.
 						contentType: false//개별적으로 컨텐트 타입을 명시할거라 //true이면 전체의 타입을 정의
 					}).done((data) => {

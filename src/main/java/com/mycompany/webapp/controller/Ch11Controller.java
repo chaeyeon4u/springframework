@@ -211,6 +211,6 @@ public class Ch11Controller {
 	public String form5(@ModelAttribute("member") Ch11Member member) {
 		logger.info("실행");
 		return "ch11/form5";
-		}
+	}
 
 }
