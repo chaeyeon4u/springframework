@@ -6,30 +6,35 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<bean id="ch13BoardDao1" class="com.mycompany.webapp.dao.Ch13BoardDao1"/>
 
-	<bean id="ch13BoardDao1" class="com.mycompany.webapp.dao.Ch13BoardDao1"></bean>
-	
+	<!-- 생성자 주입 -->
 	<!-- <bean id="ch13Service1" class="com.mycompany.webapp.service.Ch13Service1">
-		<constructor-arg ref="ch13BoardDao1"></constructor-arg>
-	</bean>  -->
-
-	<!-- settter 주입 -->
- 	<!-- <bean id="ch13Service1" class="com.mycompany.webapp.service.Ch13Service1">
-		<property name="ch13BoardDao1" ref="ch13BoardDao1"></property>
+		<constructor-arg ref="ch13BoardDao1"/>
 	</bean> -->
-	<!-- settter 주입 -->
-	<bean id="ch13Service1" class="com.mycompany.webapp.service.Ch13Service1"
-		p:ch13BoardDao1="ch13BoardDao1"/>
-		
 
-	<!-- Properties 값 관리 설정 
-		classpath : war로 변환시 class 파일에 들어가기 때문, message파일은 예외-->
-	<context:property-placeholder location="classpath:properties/*.properties"></context:property-placeholder>
+	<!-- Setter 주입 -->
+	<!-- <bean id="ch13Service1" class="com.mycompany.webapp.service.Ch13Service1">
+		<property name="ch13BoardDao1" ref="ch13BoardDao1"/>
+	</bean> -->
 	
-	<!-- Properties 값 주입, index는 매개값, href는 개체, vlue는 값, ${service.prop3}는 위에 선언된 properties 값 -->
+	<bean id="ch13Service1" class="com.mycompany.webapp.service.Ch13Service1"
+	      p:ch13BoardDao1-ref="ch13BoardDao1"/>
+	
+	<!-- Properties 값 관리 설정 -->
+	<context:property-placeholder location="classpath:properties/*.properties"/>
+	
+	<!-- Properties 값 주입 -->
 	<bean id="ch13Service5" class="com.mycompany.webapp.service.Ch13Service5">
-		<constructor-arg index="0" value="${service.prop1}"></constructor-arg>
-		<constructor-arg index="1" value="${service.prop2}"></constructor-arg>
-		<property name="prop3" value="${service.prop3}"></property>
+		<constructor-arg index="0" value="${service.prop1}"/>
+		<constructor-arg index="1" value="${service.prop2}"/>
+		<property name="prop3" value="${service.prop3}"/>
 	</bean>
 </beans>
+
+
+
+
+
+
+
