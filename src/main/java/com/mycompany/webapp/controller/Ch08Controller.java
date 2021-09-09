@@ -1,6 +1,10 @@
 package com.mycompany.webapp.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.json.JSONObject;
@@ -112,19 +116,50 @@ public class Ch08Controller {
       return json;
    }
    
-   @GetMapping(value="/logoutAjax", produces="application/json; charset=UTF-8")
-   @ResponseBody
-   public String logoutAjax(String mid, String mpassword, HttpSession session) {
-      logger.info("실행");
-      String result = "";
-      
-      session.invalidate();
-      
-      JSONObject jsonObject = new JSONObject();
-      jsonObject.put("result", "success");
-      String json = jsonObject.toString();
-      return json;
-   }
+   //
+	/* @GetMapping(value="/logoutAjax", produces="application/json; charset=UTF-8")
+	 @ResponseBody
+	 public String logoutAjax(String mid, String mpassword, HttpSession session) {
+	  logger.info("실행");
+	  String result = "";
+	  
+	  //session.invalidate();
+	  session.removeAttribute("sessionMid");
+	  
+	  JSONObject jsonObject = new JSONObject();
+	  jsonObject.put("result", "success");
+	  String json = jsonObject.toString();
+	  return json;
+	 }
+	 */
+   
+   	@GetMapping("/logoutAjax")
+	 public void logoutAjax(String mid, String mpassword, HttpSession session, HttpServletResponse response) throws IOException{
+	  logger.info("실행");
+	  String result = "";
+	  
+	  session.invalidate();//세션 지우고, 새로만든다. 그리고 jsession쿠키 만들어 헤더에 전송 -> 비동기로 처리해서 문제가 된다
+	  //session.removeAttribute("sessionMid");
+	  
+	  response.setContentType("application/json charset=UTF-8");//json의 헤더
+	  PrintWriter pw = response.getWriter();
+	  
+	  JSONObject jsonObject = new JSONObject();
+	  jsonObject.put("result", "success");
+	  String json = jsonObject.toString();
+	  
+	  pw.println(json);//응답HTTP의 메모리에있다, body에 들어간다
+	  //flush하면 브라우저로 전송//flush하지 않아도 Dispatcher Servlet이 flush, close 해서 브라우저로 전송함
+	  //우리가 flush()하면, 문제점 : session이 만들어지기 이전에 브라우저로 보내버려서 오류남
+	  //flush안하면 session만들어진 이후 Dispatcher가 알아서 자동 flush, close해줌
+	  //아우 어려워
+	  //pw.flush();
+	  
+	  /* pw.println(json);//용량 클때 여러번 나눠서 보내면 효율적
+		pw.flush();*/
+	  
+	  //pw.close();
+	}
    
    //@SessionAttributes({"inputForm"})로 등록해놔서 session 단위 저장
    //세션에 inputForm 이름이 존재하지 않을 경우 딱 한번 실행!
