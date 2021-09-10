@@ -55,7 +55,7 @@ public class Ch06Controller {
 		//응답 HTTP의 Body부분에 json을 포함
 		response.setContentType("application/json; charset=UTF-8");
 		PrintWriter pw = response.getWriter();
-		pw.print(json);
+		pw.println(json);
 		pw.flush();
 		pw.close();
 	}
