@@ -72,7 +72,7 @@
 				ajax을 통한 login 처리
 			</div>
 			<div class="card-body">
-					<form method="post" action="login">
+					<form>
 			            <div class="input-group">
 			               <div class="input-group-prepend"><span class="input-group-text">mid</span></div>
 			               <input id="mid" type="text" name="mid" class="form-control" value="spring">
@@ -85,22 +85,26 @@
 			            </div>
 		         	</form>
 					<div>
+					
 						<c:if test="${sessionMid == null}">
-							<a href="javascript:login()" class="btn btn-info btn-sm">로그인 폼 요청</a>
+							<a href="javascript:login()" class="btn btn-info btn-sm">로그인</a>
 						</c:if>
 						<c:if test="${sessionMid != null}">
 							<a href="javascript:logout()" class="btn btn-info btn-sm">로그아웃</a>
 						</c:if>
 					</div>
-				<script>
-					function login(){
-						let mid = $("mid").val();
+			</div>
+		</div>
+		<script>
+					function login() {
+						console.log("aa");
+						let mid = $("#mid").val();
 						let mpassword=$("#mpassword").val();
 						$.ajax({
 							url: "loginAjax",
-							data: {mid:mid, mpassword:mpassword},//변수명과 데이터가 같으면 생략가능
+							data: {mid, mpassword},//변수명과 데이터가 같으면 생략가능
 							method: "post"
-						}).done((data)) => {
+						}).done((data) => {
 							//data = {result:"success"}
 							//data = {result: "wrongMid"}
 							//data = {result: "wrongMpassword"}
@@ -113,17 +117,15 @@
 							if(data.result ==="success" ){
 								window.location.reload();
 							}else if(data.result ==="wrongMid" ){
-								//현재 페이지에서 다시 로드한다.
-								
 								midError.html("아이디가 잘못됨");
 							}else if(data.result ==="wrongMpassword" ){
 								mpasswordError.html("비밀번호가 잘못됨");
 							}
 
-						};
+						});
 					}
 					
-					function logout(){
+					function logout() {
 						$.ajax({
 							url:"logoutAjax"
 						}).done((data)=>{
@@ -132,9 +134,7 @@
 							window.location.reload();
 						})
 					}
-				</script>
-			</div>
-		</div>
+		</script>
 	</div>
 </div>
 
