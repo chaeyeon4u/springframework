@@ -30,7 +30,18 @@
 				<a href="testUpdate" class="btn btn-info btn-sm">Update</a>
 				<a href="testDelete" class="btn btn-info btn-sm">Delete</a>
 			</div>
-		</div>	
+		</div>
+
+		<div class="card m-2">
+			<div class="card-header">
+				MyBatis를 이용하는 Dao
+			</div>
+			<div class="card-body">
+				<a href="join" class="btn btn-info btn-sm">회원가입</a>
+				<a href="login" class="btn btn-info btn-sm">로그인</a>
+			</div>
+		</div>		
+		
 	</div>
 </div>
 

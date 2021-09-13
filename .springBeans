@@ -17,6 +17,7 @@
 		<config>src/main/resources/spring/dispatcher/Ch12_viewResolver.xml</config>
 		<config>src/main/resources/spring/dispatcher/ch13_di.xml</config>
 		<config>src/main/resources/spring/root/Ch14_datasource.xml</config>
+		<config>src/main/resources/mybatis/mapper-config.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
