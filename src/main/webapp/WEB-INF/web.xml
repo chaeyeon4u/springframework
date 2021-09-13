@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
-<!-- web.xml : 배치기술자 -->
+	<!-- web.xml : 배치기술자 -->
 	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
@@ -22,13 +22,13 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-		
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
-	<!-- 문자 인코딩 필터 설정 -->
+	  <!-- 문자 인코딩 필터 설정 
+	  	url-pattern에 인코딩 적용-->
 	  <filter>
 	    <filter-name>encodingFilter</filter-name>
 	    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -42,7 +42,7 @@
 		  <url-pattern>/*</url-pattern>
 	  </filter-mapping>
 	  
-	  <!-- 404 error 처리 -->
+	  <!-- 404 error 처리 : 404 error 발생시 location으로 가라-->
 	  <error-page>
 	  	<error-code>404</error-code>
 	  	<location>/WEB-INF/views/error/404.jsp</location>

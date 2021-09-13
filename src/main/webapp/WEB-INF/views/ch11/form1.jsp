@@ -15,7 +15,7 @@
 		<form:form method="post" modelAttribute="member">
 		  <div class="form-group">
 		    <label for="mid">ID</label>
-		    <from:input type="text" class="form-control"  path="mid"/> <!-- form일때는 name이 있어야 서버로 전송이된다. path가 id와 name으로 들어간다 -->
+		    <form:input type="text" class="form-control"  path="mid"/> <!-- form일때는 name이 있어야 서버로 전송이된다. path가 id와 name으로 들어간다 -->
 		  </div>
 		  <div class="form-group">
 		    <label for="mname">Name</label>
