@@ -11,7 +11,7 @@
 		게시물 목록
 	</div>
 	<div class="card-body">
-		<table style="width:auto" class="table table-sm table-bordered">
+		<table class="table table-sm table-bordered">
          <tr>
             <th style="width:50px">번호</th>
             <th style="width:200px">제목</th>
@@ -22,12 +22,15 @@
          <c:forEach var="board" items="${boards}">
             <tr>
                <td>${board.bno}</td>
-               <td><a href="detailBoard?bno=${board.bno}">${board.btitle}</a></td>
+               <td><a href="boardDetail?bno=${board.bno}">${board.btitle}</a></td>
                <td>${board.mid}</td>
                <td><fmt:formatDate value="${board.bdate}" pattern="yyyy-MM-dd"/></td>
             </tr>
          </c:forEach>
       </table>
+      <div class="mt-2">
+      	<a href="boardWriteForm" class="btn btn-sm btn-info">글쓰기</a>
+      </div>
 	</div>
 </div>
 

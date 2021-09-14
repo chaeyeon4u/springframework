@@ -225,4 +225,37 @@ public class Ch14Controller {
 		return "ch14/boardList";//jsp에서 사용 가능
 	}
 	
+	@GetMapping("/boardWriteForm")
+	public String boardWriteForm() {
+		return "ch14/boardWriteForm";
+	}
+	
+	@PostMapping("/boardWrite")
+	public String boardWrite(Ch14Board board) {
+		boardService.writeBoard(board);
+		return "redirect:/ch14/boardList";
+	}
+	
+	@GetMapping("/boardDetail")
+	public String boardDetail(int bno, Model model) {
+		Ch14Board board = boardService.getBoard(bno);
+		
+		//jsp로 넘기기 위해
+		model.addAttribute("board", board);
+		return "ch14/boardDetail";
+	}
+	
+	@GetMapping("/boardUpdateForm")
+	public String boardUpdateForm(int bno, Model model) {
+		Ch14Board board = boardService.getBoard(bno);
+		model.addAttribute("board", board);
+		
+		return "ch14/boardUpdateForm";
+	}
+	
+	@PostMapping("/boardUpdate")
+	public String boardUpdate(Ch14Board board) {
+		boardService.updateBoard(board);
+		return "redirect:/ch14/boardDetail?bno="+board.getBno();
+	}
 }
