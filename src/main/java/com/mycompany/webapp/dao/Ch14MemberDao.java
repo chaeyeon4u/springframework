@@ -21,13 +21,17 @@ public class Ch14MemberDao {
 	@Resource
 	private SqlSessionTemplate sqlSessionTemplate;
 	
-	public void insert(Ch14Member member) {
-		//runtimeException 발생해서 try~catch문 안써도 됨
-		sqlSessionTemplate.insert("member.insert", member);
+	public int insert(Ch14Member member) {
+		//sqlSessionTemplate.insert -> runtimeException 발생해서 try~catch문 안써도 됨
+		//try/cahch 쓰면 안된다. throws는 가능
+		//member.insert는 mapper-config.xml의 namespace활용한 것 뒤의 member는 매개변수
+		//insert/delete/update 행 수를 return한다.
+		int rows = sqlSessionTemplate.insert("mybatis.mapper.member.insert", member);
+		return rows;
 	}
 
 	public Ch14Member selectByMid(String mid) {
-		return sqlSessionTemplate.selectOne("member.selectByMid", mid);
+		return sqlSessionTemplate.selectOne("mybatis.mapper.member.selectByMid", mid);
 	}
 	
 	/*public Ch14Member selectByMidMpassword(Ch14Member member) {
