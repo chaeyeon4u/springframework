@@ -258,4 +258,10 @@ public class Ch14Controller {
 		boardService.updateBoard(board);
 		return "redirect:/ch14/boardDetail?bno="+board.getBno();
 	}
+	
+	@GetMapping("/boardDelete")
+	public String boardDelete(int bno) {
+		boardService.removeBoard(bno);
+		return "redirect:/ch14/boardList";
+	}
 }
