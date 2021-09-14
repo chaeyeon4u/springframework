@@ -13,9 +13,11 @@
         WHERE mid=#{mid}
     </select>
     
-    <!-- <select id="selectByMidMpassword" parameterType="member" resultType="member">
+    <!--
+    <select id="selectByMidMpassword" parameterType="member" resultType="member">
     	SELECT mid, mname, mpassword, menabled, mrole
     	FROM member
     	WHERE mid=#{mid} and mpassword=#{mpassword}
-    </select> -->
+    </select> 
+    -->
 </mapper>

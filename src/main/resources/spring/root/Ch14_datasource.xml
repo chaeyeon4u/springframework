@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- connection pool -->
+	<!-- WA에서 관리하는 커넥션 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+	
+        <!-- 
         <property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
-        <property name="url" value="jdbc:oracle:thin:@kosa1.iptime.org:50111:orcl"/>
+        <property name="url" value="jdbc:oracle:thin:@kosa1.iptime.org:50100:orcl"/> 
+        -->
+        
+        <property name="driverClassName" value="net.sf.log4jdbc.DriverSpy"/>
+        <property name="url" value="jdbc:log4jdbc:oracle:thin:@kosa1.iptime.org:50100:orcl"/> 
         <property name="username" value="spring"/>
         <property name="password" value="oracle"/>
-        <property name="initialSize" value="1"/>
-        <property name="maxTotal" value="2"/>
+        <property name="initialSize" value="2"/>
+        <property name="maxTotal" value="3"/>
         <property name="maxIdle" value="1"/>
     </bean>
+    
+    <!-- was에서 관리하는 커넥션 -->
+   <!--<jee:jndi-lookup id="dataSource" jndi-name="jdbc/spring" expected-type="javax.sql.DataSource"></jee:jndi-lookup> -->
     
     <!-- Mybatis -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -22,6 +34,6 @@
     </bean>
     
     <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-    	<constructor-arg ref="sqlSessionFactory"/>
+    	<constructor-arg ref="sqlSessionFactory"/><!-- 생성자 주입 -->
     </bean>
 </beans>

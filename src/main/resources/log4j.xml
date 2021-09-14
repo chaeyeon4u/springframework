@@ -17,6 +17,9 @@
 		<level value="debug" /><!-- 이 이상의 level만 출력된다 -> debug, info, warn, error 순서 -->
 	</logger>
 	
+	<logger name="jdbc.sqltiming">
+		<level value="info" /><!-- 이 이상의 level만 출력된다 -> debug, info, warn, error 순서 -->
+	</logger>
 
 	<!-- Root Logger -->
 	<root>
