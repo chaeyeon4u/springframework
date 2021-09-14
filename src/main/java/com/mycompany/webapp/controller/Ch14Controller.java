@@ -235,6 +235,7 @@ public class Ch14Controller {
 		}*/
 		int totalRows = boardService.getTotalBoardNum();
 		Pager pager = new Pager(10, 5, totalRows, pageNo);
+		model.addAttribute("pager", pager);
 		
 		List<Ch14Board> boards = boardService.getBoards(pager);
 		model.addAttribute("boards", boards);
