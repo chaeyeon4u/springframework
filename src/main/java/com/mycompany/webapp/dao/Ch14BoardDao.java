@@ -3,6 +3,7 @@ package com.mycompany.webapp.dao;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import com.mycompany.webapp.dto.Ch14Board;
+import com.mycompany.webapp.dto.Pager;
 
 //interface : 사용 방법 기술
 //Mapper 어노테이션 사용 
@@ -11,7 +12,7 @@ import com.mycompany.webapp.dto.Ch14Board;
 @Mapper
 public interface Ch14BoardDao {//구현 객체는 myBatis가 제공
 	
-	public List<Ch14Board> selectByPage();
+	public List<Ch14Board> selectByPage(Pager pager);
 	public int count();
 	public Ch14Board selectByBno(int bno);
 	public int insert(Ch14Board board);

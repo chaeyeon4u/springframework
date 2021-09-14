@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.mycompany.webapp.dao.Ch14BoardDao;
 import com.mycompany.webapp.dto.Ch14Board;
+import com.mycompany.webapp.dto.Pager;
 
 @Service
 public class Ch14BoardService {
@@ -20,8 +21,8 @@ public class Ch14BoardService {
 	private Ch14BoardDao boardDao;
 	
 	//게시물 목록
-	public List<Ch14Board> getBoards() {
-		return boardDao.selectByPage();
+	public List<Ch14Board> getBoards(Pager pager) {
+		return boardDao.selectByPage(pager);
 	}
 	
 	//게시물 하나
