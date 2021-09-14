@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.mycompany.webapp.dto.Ch14Board;
 
-//interface : 사용방법 기술
+//interface : 사용 방법 기술
 //Mapper 어노테이션 사용 
 //: 메서드 이름이 member.xml의 id가 된다.
 //com.mycompany.webapp.dao.Ch14Board는 namespace가 된다.
