@@ -22,8 +22,9 @@ public class Ch14MemberService {
 	
 	public enum loginResult{
 		SUCCESS,
-		IDFAIL,
-		PWFAIL
+		FAIL_MID,
+		FAIL_MPASSWORD,
+		FAIL//서버 발생 에러
 	}
 	
 	@Resource
@@ -50,21 +51,30 @@ public class Ch14MemberService {
 	
 	//로그인 처리하는 비즈니스 메소드(로직)
 	public loginResult login(Ch14Member member) {
-		//아이디 일치하는가
-		Ch14Member dbMember = memberDao.selectByMid(member.getMid());
 		
-		
-		if(dbMember == null) {
-			return loginResult.IDFAIL;
-		}else {
-			//아이디의 비밀번호 일치하는가
-			dbMember = memberDao.selectByMidMpassword(member);
+		try {
+			//아이디 일치하는가
+			Ch14Member dbMember = memberDao.selectByMid(member.getMid());
 			
+			//확인 작업
 			if(dbMember == null) {
-				return loginResult.PWFAIL;
+				return loginResult.FAIL_MID;
+			}else if(!dbMember.getMpassword().equals(member.getMpassword())){
+				//아이디의 비밀번호 일치하는가
+				//dbMember = memberDao.selectByMidMpassword(member);
+				
+				//if(dbMember == null) {
+					return loginResult.FAIL_MPASSWORD;
+				//}else {
+				//	return loginResult.SUCCESS;
+				//}
 			}else {
 				return loginResult.SUCCESS;
 			}
-		}		
+		}catch(Exception e) {
+			e.printStackTrace();
+			return loginResult.FAIL;
+		}
+				
 	}
 }

@@ -30,7 +30,7 @@ public class Ch14MemberDao {
 		return sqlSessionTemplate.selectOne("member.selectByMid", mid);
 	}
 	
-	public Ch14Member selectByMidMpassword(Ch14Member member) {
+	/*public Ch14Member selectByMidMpassword(Ch14Member member) {
 		return sqlSessionTemplate.selectOne("member.selectByMidMpassword", member);
-	}
+	}*/
 }

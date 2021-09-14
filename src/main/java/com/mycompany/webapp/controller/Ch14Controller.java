@@ -199,12 +199,16 @@ public class Ch14Controller {
 		
 		if(lr == loginResult.SUCCESS) {
 			return "redirect:/ch14/content";
-		}else if(lr == loginResult.IDFAIL) {
+		}else if(lr == loginResult.FAIL_MID) {
 			model.addAttribute("error", "아이디가 존재하지 않습니다.");
-		}else {
+			return "ch14/loginForm";
+		}else if(lr == loginResult.FAIL_MPASSWORD) {
 			model.addAttribute("error", "아이디에 대한 비밀번호가 일치하지 않습니다.");
+			return "ch14/loginForm";
+		}else {
+			model.addAttribute("error", "알수 없는 이유로 로그인이 되지 않았습니다. 다시 시도해주세요");
+			return "ch14/loginForm";
 		}
-		return "ch14/loginForm";
 		
 	}
 }
