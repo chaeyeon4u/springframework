@@ -7,9 +7,14 @@ import javax.annotation.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.ReactiveTransaction;
+import org.springframework.transaction.reactive.TransactionCallback;
+import org.springframework.transaction.support.TransactionTemplate;
 
 import com.mycompany.webapp.dao.Ch16AccountDao;
 import com.mycompany.webapp.dto.Ch16Account;
+
+import oracle.ons.Publisher;
 
 @Service
 public class Ch16AccountService {
@@ -17,6 +22,9 @@ public class Ch16AccountService {
 	
 	@Resource
 	private Ch16AccountDao accountDao;
+	
+	@Resource
+	private TransactionTemplate transactionTemplate;
 	
 	public List<Ch16Account> getAccounts(){
 		logger.info("실행");
@@ -27,6 +35,10 @@ public class Ch16AccountService {
 	//계좌이체
 	public void transfer1(int fromAno, int toAno, int amount) {
 		logger.info("실행");
+		
+		//익명객체
+		//String result = transactionTemplate.execute(new TransactionCallback<String>());
+		
 		
 		//출금하기
 		Ch16Account fromAccount = accountDao.selectByAno(fromAno);
