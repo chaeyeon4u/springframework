@@ -14,12 +14,26 @@
 	
 		<div class="card">
 			<div class="card-header">
-				프로그래밍 방식
+				계좌 현황
 			</div>
 			<div class="card-body">
-			
 			</div>
-		</div>
+				<table style="width:auto" class="table table-sm table-bordered">
+	               <tr>
+	                  <th style="width:50px">번호</th>
+	                  <th style="width:100px">소유주</th>
+	                  <th style="width:200px">잔고</th>
+	               </tr>
+	               
+	               <c:forEach var="account" items="${list}">
+	                  <tr>
+	                     <td>${account.ano}</td>
+	                     <td>${account.owner}</td>
+	                     <td style="text-align:right;">${account.balance}</td>
+	                  </tr>
+	               </c:forEach>
+	            </table>
+			</div>
 	
 		<div class="card">
 			<div class="card-header">
