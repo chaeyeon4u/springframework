@@ -73,7 +73,7 @@
 	</li>
 	<li class="nav-item mb-2">
 		<h6 class="text-white">
-			<span class="mr-2">Ch015.</span><a class="text-white" href="${pageContext.request.contextPath}/ch15/content">AOP</a>
+			<span class="mr-2">Ch015.</span><a class="text-white" href="${pageContext.request.contextPath}/ch15/content">AOP(Aspect Oriented Programming)</a>
 		</h6> 
 	</li>
 	<li class="nav-item mb-2">

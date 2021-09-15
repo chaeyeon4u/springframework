@@ -47,7 +47,7 @@ public class Ch16AccountService {
 		
 		//입금하기
 		Ch16Account toAccount = accountDao.selectByAno(toAno);
-		fromAccount.setBalance(toAccount.getBalance() + amount);
+		toAccount.setBalance(toAccount.getBalance() + amount);
 		accountDao.updateBalance(toAccount);
 	}
 	
@@ -61,7 +61,7 @@ public class Ch16AccountService {
 		
 		//입금하기
 		Ch16Account toAccount = accountDao.selectByAno(toAno);
-		fromAccount.setBalance(toAccount.getBalance()+amount);
+		toAccount.setBalance(toAccount.getBalance()+amount);
 		accountDao.updateBalance(toAccount);
 	}
 

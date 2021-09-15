@@ -8,7 +8,7 @@
 
 <div class="card m-2">
 	<div class="card-header">
-		AOP
+		AOP(관점 지향 프로그래밍)
 	</div>
 	<div class="card-body">
 		<div class="card-header">

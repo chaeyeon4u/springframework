@@ -101,7 +101,7 @@ public class Ch15Controller {
 		loginResult result = memberService.login(member);
 		if(result == loginResult.SUCCESS) {
 			session.setAttribute("sessionMid", member.getMid());
-			return "/";
+			return "ch10/content";
 		}else if(result == loginResult.FAIL_MID) {
 			String error = "아이디가 존재하지 않아요";
 			model.addAttribute("error",error);
@@ -131,6 +131,6 @@ public class Ch15Controller {
 		Pager pager = new Pager(5, 5, boardService.getTotalBoardNum(), 1);
 		List<Ch14Board> boards = boardService.getBoards(pager);
 		model.addAttribute("boards", boards);
-		return "ch15/content";
+		return "ch15/boardList";
 	}
 }

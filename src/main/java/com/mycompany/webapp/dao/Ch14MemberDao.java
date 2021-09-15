@@ -31,10 +31,8 @@ public class Ch14MemberDao {
 	}
 
 	public Ch14Member selectByMid(String mid) {
-		return sqlSessionTemplate.selectOne("mybatis.mapper.member.selectByMid", mid);
+		Ch14Member member = sqlSessionTemplate.selectOne("mybatis.mapper.member.selectByMid", mid);
+		return member;
 	}
 	
-	/*public Ch14Member selectByMidMpassword(Ch14Member member) {
-		return sqlSessionTemplate.selectOne("member.selectByMidMpassword", member);
-	}*/
 }
