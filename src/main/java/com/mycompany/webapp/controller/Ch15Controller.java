@@ -22,4 +22,46 @@ public class Ch15Controller {
 		logger.info("실행");
 		return "redirect:/ch15/content";
 	}
+	
+	@RequestMapping("/after")
+	public String after() {
+		logger.info("실행");
+		return "redirect:/ch15/content";
+	}
+	
+	@RequestMapping("/afterReturning")
+	public String afteReturning() {
+		logger.info("실행");
+		return "redirect:/ch15/content";
+	}
+	
+	@RequestMapping("/afterThrowing")
+	public String afteThrowing() {
+		logger.info("실행");
+		
+		//강제적 예외 발생
+		if(true) {
+			throw new RuntimeException("테스트 예외입니다.");
+		}
+		
+		return "redirect:/ch15/content";
+	}
+	
+	@RequestMapping("/around")
+	public String around() {
+		logger.info("실행");
+		return "redirect:/ch15/content";
+	}
+	
+	@RequestMapping("/runtimeCheck")
+	public String runtimeCheck() {
+		logger.info("실행");
+		return "redirect:/ch15/content";
+	}
+	
+	@RequestMapping("/authCheck")
+	public String authCheck() {
+		logger.info("실행");
+		return "redirect:/ch15/content";
+	}
 }
