@@ -6,11 +6,7 @@
 
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 
-<div class="card m-2">
-	<div class="card-header">
-		게시물 목록
-	</div>
-	<div class="card-body">
+
 		<table class="table table-sm table-bordered">
          <tr>
             <th style="width:50px">번호</th>
@@ -27,34 +23,9 @@
                <td><fmt:formatDate value="${board.bdate}" pattern="yyyy-MM-dd"/></td>
             </tr>
          </c:forEach>
-         <tr>
-         	<td colspan="4" class="text-center">
-         		<div>
-         			<a class="btn btn-outline-primary btn-sm" href="boardList?pageNo=1">처음</a>
-         			<c:if test="${pager.groupNo>1}">
-         				<a class="btn btn-outline-info btn-sm" href="boardList?pageNo=${pager.startPageNo-1}">이전</a>
-         			</c:if>
-         			
-         			<c:forEach var="i" begin="${pager.startPageNo}" end="${pager.endPageNo}">
-         				<c:if test="${pager.pageNo == i }">
-         					<a class="btn btn-outline-danger btn-sm" href="boardList?pageNo=${i}">${i}</a>
-         				</c:if>
-         				<c:if test="${pager.pageNo != i }">
-         					<a class="btn btn-outline-success btn-sm" href="boardList?pageNo=${i}">${i}</a>
-         				</c:if>
-         			</c:forEach>
-         			
-         			<a class="btn btn-outline-info btn-sm"  href="boardList?pageNo=${pager.endPageNo+1}">다음</a>
-         			<c:if test="${pager.groupNo < pager.totalGroupNo}">
-         				<a class="btn btn-outline-primary btn-sm" href="boardList?pageNo=${pager.totalPageNo}">맨끝</a>
-         			</c:if>
-         		</div>
-         	</td>
-         </tr>
+         
       </table>
-     <div class="mt-2">
-      	<a href="boardWriteForm" class="btn btn-sm btn-info">글쓰기</a>
-      </div>
+     
 	</div>
 </div>
 

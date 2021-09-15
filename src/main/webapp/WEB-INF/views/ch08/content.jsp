@@ -57,19 +57,10 @@
 			</div>
 		</div>
 		
-		<div class="card">
-			<div class="card-header">
-				@SessionAttribute를 이용한 다단계 입력 처리
-			</div>
-			<div class="card-body">
-				<a href="inputStep1" class="btn btn-info btn-sm">1단계 입력</a>
-			</div>
-		</div>
-		
 		
 		<div class="card">
 			<div class="card-header">
-				ajax을 통한 login 처리
+				AJAX을 통한 login 처리
 			</div>
 			<div class="card-body">
 					<form>
@@ -135,6 +126,15 @@
 						})
 					}
 		</script>
+		
+		<div class="card">
+			<div class="card-header">
+				@SessionAttribute를 이용한 다단계 입력 처리
+			</div>
+			<div class="card-body">
+				<a href="inputStep1" class="btn btn-info btn-sm">1단계 입력</a>
+			</div>
+		</div>
 	</div>
 </div>
 
