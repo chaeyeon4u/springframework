@@ -39,7 +39,12 @@
 				$.ajax({
 					url: "boardList"
 				}).done((data) => {
-					$("#boardList").html(data);
+					if(data.result === "loginNeed"){
+						//$("#boardList").html("로그인 필요");
+						window.location.href="login";
+					}else{
+						$("#boardList").html(data);
+					}
 				});
 			}
 		</script>

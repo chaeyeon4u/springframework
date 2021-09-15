@@ -17,11 +17,11 @@
 		<form method="post" action="login">
             <div class="input-group">
                <div class="input-group-prepend"><span class="input-group-text">mid</span></div>
-               <input type="text" name="mid" class="form-control"/>
+               <input type="text" name="mid" class="form-control">
             </div>
             <div class="input-group">
                <div class="input-group-prepend"><span class="input-group-text">mpassword</span></div>
-               <input type="password" name="mpassword" class="form-control"/>
+               <input type="password" name="mpassword" class="form-control">
             </div>
             <div>
             	<input class="btn btn-info" type="submit" value="로그인"/>
