@@ -73,6 +73,7 @@ public class Ch16AccountService {
    }
    
    //anotation을 이용한 트랜잭션 처리
+   //예외 발생시 자동 롤백
    @Transactional
    public void transfer2(int fromAno, int toAno, int amount) {
       logger.info("실행");

@@ -198,6 +198,24 @@
 		    <version>1.9.4</version>
 		</dependency>
 		
+		<!-- Security -->
+		<dependency><!-- org.springframework-version 잘 봐야해 -->
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-web</artifactId>
+		    <version>5.5.1</version>
+		</dependency>
+
+		<dependency><!-- 설정을 위한 -->
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-config</artifactId>
+		    <version>5.5.1</version>
+		</dependency>
+		
+		<dependency><!-- 태그 사용을 위한 -->
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-taglibs</artifactId>
+		    <version>5.5.1</version>
+		</dependency>
 		
 	</dependencies>
     <build>
