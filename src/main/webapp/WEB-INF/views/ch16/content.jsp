@@ -17,6 +17,12 @@
 				계좌 현황
 			</div>
 			<div class="card-body">
+			
+			<c:if test="${transferError != null}">
+				<div class="alert alert-danger" role="alert">
+				  ${transferError}
+				</div>
+			</c:if>
 			</div>
 				<table style="width:auto" class="table table-sm table-bordered">
 	               <tr>

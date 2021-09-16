@@ -34,12 +34,13 @@ public class Ch10ExceptionHandler {
 		return "error/500_cast";
 	}
 	
-	//구체적 예외처리 이후 보통의 예외처리
+	
 	@ExceptionHandler
-	public String handleException(RuntimeException e) {//Exception으로 해도 괜찮음
+	public String handleCh16NotFoundAccountException(Ch16NotFoundAccountException e, Model model) {//Exception으로 해도 괜찮음
 		logger.info("실행");
 		e.printStackTrace();
-		return "error/500";
+		model.addAttribute("error", e.getMessage());
+		return "error/notFoundAccountException";
 	}
 	
 	@ExceptionHandler
@@ -49,12 +50,12 @@ public class Ch10ExceptionHandler {
 		return "error/soldout";
 	}
 	
+	//구체적 예외처리 이후 보통의 예외처리
 	@ExceptionHandler
-	public String handleCh16NotFoundAccountExceptionException(Ch16NotFoundAccountException e, Model model) {//Exception으로 해도 괜찮음
+	public String handleException(RuntimeException e) {//Exception으로 해도 괜찮음
 		logger.info("실행");
 		e.printStackTrace();
-		model.addAttribute("error", e.getMessage());
-		return "error/notFoundAccountException";
+		return "error/500";
 	}
-	
+		
 }
