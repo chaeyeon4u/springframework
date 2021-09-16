@@ -35,6 +35,7 @@
 			<div id="boardList"></div>
 		</div>
 		
+		
 		<script>
 			function boardList1(){
 				$.ajax({
