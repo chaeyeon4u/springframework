@@ -31,7 +31,7 @@
 	
 		<!--사이트간 요청 위변조 방지 비활성화 -->
 		<!-- logout도 post 방식으로 요청(_csrf의 token을 전달해야한다.) -->
-		<security:csrf disabled="false"/>
+		<security:csrf disabled="true"/>
 		
 		<!-- 요청url 권한 설정 
 			access:permitAll : 누구든지 페이지 볼 수 있게 하겠다.

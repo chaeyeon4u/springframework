@@ -46,6 +46,8 @@
 				
 					<!-- 인증된 사용자 -->
 					<sec:authorize access="isAuthenticated()">
+					
+						<!--  사이트가 요청 위조 방지가 활성화 되어있을 경우 -->
 						<form method="post" action="${pageContext.request.contextPath}/logout">
  							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
  							<button class="btn btn-success btn-sm">로그아웃</button>

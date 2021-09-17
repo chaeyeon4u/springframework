@@ -60,7 +60,14 @@
 			</div>
 		</div>
 		
-		
+		<div class="card m-2">
+			<div class="card-header">
+				회원 가입(비밀 번호 암호화)
+			</div>
+			<div class="card-body">
+				<a href="joinForm" class="btn btn-info btn-sm">회원 가입</a>
+			</div>
+		</div>
 	</div>
 </div>
 
