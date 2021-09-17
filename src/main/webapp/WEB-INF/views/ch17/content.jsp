@@ -24,16 +24,35 @@
 				<!-- 인증된 사용자 -->
 				<sec:authorize access="isAuthenticated()">
 						<!--  사이트가 요청 위조 방지가 비활성화 되어있을 경우 -->
-<%-- 					<a href="${pageContext.request.contextPath}/logout" class="btn btn-info btn-sm">로그아웃</a>
- --%>					
+ 					<%--<a href="${pageContext.request.contextPath}/logout" class="btn btn-info btn-sm">로그아웃</a> --%>
+					
  						<!--  사이트가 요청 위조 방지가 활성화 되어있을 경우 -->
- 						<form method="post" action="${pageContext.request.contextPath}/logout">
+ 						<form method="post" action="${pageContext.request.contextPath}/logout" class="d-inline-block">
  							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
  							<button class="btn btn-info btn-sm">로그아웃</button>
  						</form>
+ 						
+ 						<a href="javascript:userInfo()" class="btn btn-info btn-sm ml-2">사용자 정보</a>
+ 						<hr/>
+ 						<!-- 사용자 정보 나타낼 곳 -->
+ 						<div id="userInfo"></div>
 				</sec:authorize>
 				
 			</div>
+			<script>
+				function userInfo(){
+					$.ajax({
+						url: "userInfo"
+					}).done((data)=>{
+						//{mid:xxx, mrole:[yyy, yy, ...], ip:xxx}
+						let html = "";
+						html += "<p>Member ID: "+data.mid+"</p>";
+						html += "<p>Member Role: "+data.mrole.toString()+"</p>";
+						html += "<p>Member IP: "+data.ip+"</p>";
+						$("#userInfo").html(html);
+					});
+				}
+			</script>
 		</div>
 		
 		<div class="card m-2">
