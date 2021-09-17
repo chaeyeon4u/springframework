@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
 	<!-- web.xml : 배치기술자 -->
-	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+	
+	<!-- ContextLoaderListener가 사용하는 스프링 설정 파일 위치 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:spring/root/*.xml</param-value>
 	</context-param>
 	
-	<!-- Creates the Spring Container shared by all Servlets and Filters -->
+	<!-- ROOT WebApplicationContext를 생성하도록 설정 -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
-	<!-- Processes application requests -->
+	<!-- 요청 처리를 담당하는 Servlet 등록 -->
 	<servlet>
 		<servlet-name>appServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<!-- DispatcherServlet이 사용하는 스프링 설정파일 위치
+	    	이 설정파일 이용해서 WebApplicationContext 설정 -->
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>classpath:spring/dispatcher/*.xml</param-value>
@@ -59,5 +62,9 @@
 	   <url-pattern>/*</url-pattern>
 	 </filter-mapping>
 	
-	
+	 <!-- Spring Security 로그인 중복 방지를 위한 설정 -->
+	 <listener>
+	     <listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
+	  </listener>
+	  
 </web-app>
