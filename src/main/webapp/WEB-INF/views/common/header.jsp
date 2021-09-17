@@ -41,7 +41,7 @@
                   </c:if> --%>
                   <!-- 인증되지 안은 사용자 -->
 					<sec:authorize access="isAnonymous()">
-						<a class="btn btn-info btn-sm" href="${pageContext.request.contextPath}/ch17/login">로그인</a>
+						<a  href="${pageContext.request.contextPath}/ch17/loginForm" class="btn btn-info btn-sm">로그인</a>
 					</sec:authorize>
 				
 					<!-- 인증된 사용자 -->

@@ -14,20 +14,38 @@
 		<!-- 인증 방식 설정 : Form 인증 방식 -->
 		<!-- always-use-default-target= true : 로그인 성공시 항상 default-target-url로 간다. 
 				false : 요청 경로로 간다(디폴트) -->
+		<!--
 		<security:form-login
 			login-page="/ch17/loginForm"
 			username-parameter="mid"
 			password-parameter="mpassword"
 			login-processing-url="/login"
-			always-use-default-target="true"
-			default-target-url="/"
-			authentication-failure-url="/ch17/loginForm"/>
-	
+			always-use-default-target="false"
+			default-target-url="/ch17/content"
+			authentication-failure-url="/ch17/loginForm"
+			/>
+		  -->
+		  
+		  <!-- 로그인 성공/실패시 직접 정의 -->
+		  <security:form-login
+				login-page="/ch17/loginForm"
+				username-parameter="mid"
+				password-parameter="mpassword"
+				login-processing-url="/login"
+				authentication-success-handler-ref="authenticationSuccessHandler"
+				authentication-failure-handler-ref="authenricationFailureHandler"
+				/>
+			
+			
 		<!-- logouot 
 			logout-url 값은 바꿀 수 없다 우리가 설정 x-->
+		<!-- 
 		<security:logout
 					logout-url="/logout"
-					logout-success-url="/ch17/content"/>
+					logout-success-url="/ch17/content"/> -->
+		<security:logout
+					logout-url="/logout"
+					success-handler-ref="logoutSuccessHandler"/>
 	
 		<!--사이트간 요청 위변조 방지 비활성화 -->
 		<!-- logout도 post 방식으로 요청(_csrf의 token을 전달해야한다.) -->
@@ -105,4 +123,25 @@
 								data-source-ref="dataSource"
 								users-by-username-query="SELECT mid, mpassword, menabled FROM member WHERE mid=?"
 								authorities-by-username-query="SELECT mid, mrole FROM member WHERE mid=?"/>
+								
+	
+	<!-- 인증 성공 또는 실패시 실행되는 핸들러 객체 설정
+		Ch17AuthenticationSuccessHandler객체 생성 -->
+	<bean id="authenticationSuccessHandler" class="com.mycompany.webapp.security.Ch17AuthenticationSuccessHandler">
+		<!-- 로그인 성공 후 리다이랙트로 이동할 경로 -->
+		<property name="alwaysUseDefaultTargetUrl" value="false"></property>
+		<property name="defaultTargetUrl" value="/"></property>
+	</bean>
+	
+	<bean id="authenricationFailureHandler" class="com.mycompany.webapp.security.Ch17AuthenricationFailureHandler">
+		<!-- 로그인 실패 후 리다이렉트로 페이지를 이동 -->
+		<property name="defaultFailureUrl" value="/"/>
+	</bean>
+	
+	<bean id="logoutSuccessHandler" class="com.mycompany.webapp.security.Ch17LogoutSuccessHandler">
+		<!-- 로그아웃 성공시 리다이렉트로 페이지를 이동 -->
+		<property name="defaultTargetUrl" value="/ch17/content"></property>
+	</bean>
+	
+	
 </beans>
