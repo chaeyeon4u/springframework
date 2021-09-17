@@ -93,11 +93,11 @@ public class Ch14Controller {
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				int bno = rs.getInt("bno");
-				String btitle = rs.getString("btitle");
-				String bcontent = rs.getString("bcontent");
-				Date bdate = rs.getDate("bdate");
-				String mid = rs.getString("mid");
+				int bno = rs.getInt("bno");//(1)
+				String btitle = rs.getString("btitle");//(2)
+				String bcontent = rs.getString("bcontent");//(3)
+				Date bdate = rs.getDate("bdate");//(4)
+				String mid = rs.getString("mid");//(5)
 				logger.info(bno + "\t" + btitle + "\t" + bcontent + "\t" + bdate + "\t" + mid);
 			}
 			pstmt.close();
