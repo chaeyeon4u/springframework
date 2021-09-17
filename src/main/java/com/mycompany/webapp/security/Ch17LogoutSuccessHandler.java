@@ -14,8 +14,6 @@ import org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuc
 public class Ch17LogoutSuccessHandler extends SimpleUrlLogoutSuccessHandler{
 	
 	private static final Logger logger = LoggerFactory.getLogger(Ch17LogoutSuccessHandler.class);
-
-	
 	
 	@Override
 	public void onLogoutSuccess(
