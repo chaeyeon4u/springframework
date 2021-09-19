@@ -16,7 +16,7 @@
       <form method="post" action="join">
       	 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
          <div class="form-group">
-             <label for="mname">Member ID</label>
+             <label for="mid">Member ID</label>
              <input type="text" class="form-control" id="mid" name="mid">
          </div>
          <div class="form-group">
