@@ -11,7 +11,7 @@
       <a href="redirect" class="btn btn-info btn-sm">홈으로 리다이렉트</a>
       <hr/>
       
-      <p>AJAX 요청은 리다이렉트를 하면 안됨</p>
+      <p>AJAX 요청(리다이렉트를 하면 안됨)</p>
       <a href="javascript:ajax1()" class="btn btn-info btn-sm">AJAX 요청(HTML 조각 얻기)</a>
       <a href="javascript:ajax2()" class="btn btn-info btn-sm">AJAX 요청(JSON)</a>
       <a href="javascript:ajax3()" class="btn btn-info btn-sm">AJAX 요청(JSON)</a>

@@ -25,27 +25,36 @@ public class Ch06Controller {
 	
 	@RequestMapping("/content")
 	public String content(){
+		logger.info("실행");
 		return "ch06/content";
 	}
 	
 	@RequestMapping("/forward")
 	public String forward() {
+		logger.info("실행");
+
 		return "ch06/forward";
 	}
 	
 	@RequestMapping("/redirect")
 	public String redirect() {
+		logger.info("실행");
+
 		return "redirect:/";
 	}
 	
 	@GetMapping("/getFragmentHtml")
 	public String getFragmentHtml() {
+		logger.info("실행");
+
 		return "ch06/fragment";
 	}
 	
 	//json으로 직접 출력
 	@GetMapping("/getJson1")
 	public void getJson1(HttpServletResponse response) throws Exception {
+		logger.info("실행");
+
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("fileName", "photo4.jpg");
 		String json = jsonObject.toString();
@@ -65,6 +74,8 @@ public class Ch06Controller {
 	@GetMapping(value="/getJson2", produces="application/json; charset=UTF-8")//application/json : json//ContentType을 Setting
 	@ResponseBody
 	public String getJson2() throws Exception {
+		logger.info("실행");
+
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("fileName", "photo5.jpg");
 		String json = jsonObject.toString();

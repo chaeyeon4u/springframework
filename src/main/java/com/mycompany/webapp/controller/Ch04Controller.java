@@ -51,7 +51,7 @@ public class Ch04Controller {
 			new Ch04MemberPasswordValidator(),
 			new Ch04MemberEmailValidator(),
 			new Ch04MemberTelValidator()
-		);//자바에서 ...은 가변길이 매개변수라는 뜻
+		);
 	}
 	
 	//@ModelAttribute 없을 경우 : Ch04Member -> ch04Member라는 이름으로 관리함 (@InitBinder("Ch04Member")) //첫자 소문자

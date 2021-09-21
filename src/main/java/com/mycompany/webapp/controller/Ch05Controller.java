@@ -40,8 +40,8 @@ public class Ch05Controller {
 		logger.info("requestURI : " + request.getRequestURI());
 		logger.info("method : "+ request.getRequestURI());
 		logger.info("client IP : "+ request.getRemoteAddr()); //ip주소
-		logger.info("contextRoot : " + request.getContextPath());//OS, Browser 정보 포맘
-		String userAgent = request.getHeader("User-Agent");
+		logger.info("contextRoot : " + request.getContextPath());
+		String userAgent = request.getHeader("User-Agent");//OS, Browser 정보 포함
 		
 		logger.info(userAgent);//브라우저마다 다르게 띄워진다.
 		
