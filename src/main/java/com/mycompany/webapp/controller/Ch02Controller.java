@@ -12,41 +12,42 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/ch02")///ch02에서 request가 오면 실행
+@RequestMapping("/ch02")//요청경로가 ch02로 시작될 경우 HandlerMapper가 매핑시켜준다
 public class Ch02Controller {
 	private static final Logger logger = LoggerFactory.getLogger(Ch02Controller.class);
 
-	@RequestMapping(value="/content")//값 하나면 value생략가능
+	//@RequestMapping("/content")
+	@RequestMapping(value="/content")
 	public String content() {
 		logger.info("/ch02/content 실행");
-		return "ch02/content";//이 view(jsp)를 실행해서 보여준다.
+		return "ch02/content";//요청 수행 후 DispacherServlet에 반환할 view의 이름
 	}
 	
-	//@GetMapping("/method")//방법1(요청방식이 Get이고, 경로가 /content/method)
+	//@GetMapping("/method")//방법1(요청방식이 Get이고, 경로가 /ch02/method)
 	@RequestMapping(value="/method", method=RequestMethod.GET)//방법2
 	public String method1() {
-		logger.info("/ch02/method1 실행");
+		logger.info("실행");
 		return "redirect:/ch02/content";//redirect 재요청 -> content() 재실행
 	}
 	
 	//@PostMapping("/method")
 	@RequestMapping(value="/method", method=RequestMethod.POST)
 	public String method2() {
-		logger.info("/ch02/method2 실행");
+		logger.info("실행");
 		return "redirect:/ch01/content";
 	}
 	
 	//@PutMapping("/method")
 	@RequestMapping(value="/method", method=RequestMethod.PUT)
 	public String method3() {
-		logger.info("/ch02/method3 실행");
+		logger.info("실행");
 		return "redirect:/ch02/content";
 	}
 	
 	//@DeleteMapping("/method")
 	@RequestMapping(value="/method", method=RequestMethod.DELETE)
 	public String method4() {
-		logger.info("/ch02/method4 실행");
+		logger.info("실행");
 		return "redirect:/ch02/content";
 	}
 	
@@ -55,7 +56,7 @@ public class Ch02Controller {
 	public ModelAndView method5(){//return형태가 String이 아닌 ModelAndView
 		logger.info("ModelAndView");
 		ModelAndView modelAndView = new ModelAndView();//ModelAndView 객체 생성
-		modelAndView.setViewName("ch02/modelandview");//ModelAndView 객체에 경로 넣기
+		modelAndView.setViewName("ch02/modelandview");//ModelAndView 객체에 반환 경로
 		return modelAndView;//ModelView 반환
 	}
 	

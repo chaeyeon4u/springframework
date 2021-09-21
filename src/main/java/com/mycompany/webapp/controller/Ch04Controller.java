@@ -29,12 +29,13 @@ public class Ch04Controller {
 
 	@RequestMapping("/content")
 	public String ch04Controller() {
-		
+		logger.info("실행");
 		return "ch04/content";
 	}
 	
 	@PostMapping("/method1")
 	public String method1() {
+		logger.info("실행");
 		//return "ch04/content";
 		return "redirect:/ch04/content";
 	}

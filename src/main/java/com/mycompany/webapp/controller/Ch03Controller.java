@@ -1,6 +1,6 @@
 package com.mycompany.webapp.controller;
 
-import java.util.Date;
+import java.util.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -52,9 +52,9 @@ public class Ch03Controller {
 	public String method1(
 			String param1,
 			@RequestParam(value="param2", defaultValue = "0") int p2,//또다른 사용... 잘안써
-			@RequestParam(defaultValue = "0.0")double param3,
+			@RequestParam(defaultValue = "0.0") double param3,
 			@RequestParam(defaultValue = "false") boolean param4,
-			@DateTimeFormat(pattern="yyy-MM-dd") Date param5
+			@DateTimeFormat(pattern="yyyy-MM-dd") Date param5
 	){
 		logger.info("param1 : "+ param1);
 		logger.info("param2 : "+ p2);

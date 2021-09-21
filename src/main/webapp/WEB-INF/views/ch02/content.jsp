@@ -20,35 +20,34 @@
 				<button class="btn btn-info btn-sm" onclick="requestDelete()">DELETE 방식</button>
 			</div>
 			<script>
-				function requestGet(){//GET 방식과 ajax 방식을 사용한 요청
+				function requestGet(){
 					$.ajax({
-						//url: "/ch02/content",//이 경로로 요청
-						url: "${pageContext.request.contextPath}/ch02/method",//이 경로로 요청
-						method: "GET"//요청방식, 요청 식별!
+						url: "${pageContext.request.contextPath}/ch02/method",
+						method: "GET"
 					})
 					.done((data) => {});
 				}
 				
 				function requestPost(){
 					$.ajax({
-						url: "${pageContext.request.contextPath}/ch02/method",//이 경로로 요청
-						method: "POST"//요청방식
+						url: "${pageContext.request.contextPath}/ch02/method",
+						method: "POST"
 					})
 					.done((data) => {});
 				}
 
 				function requestPut(){
 					$.ajax({
-						url: "${pageContext.request.contextPath}/ch02/method",//이 경로로 요청
-						method: "PUT"//요청방식
+						url: "${pageContext.request.contextPath}/ch02/method",
+						method: "PUT"
 					})
 					.done((data) => {});
 				}
 
 				function requestDelete(){
 					$.ajax({
-						url: "${pageContext.request.contextPath}/ch02/method",//이 경로로 요청
-						method: "DELETE"//요청방식
+						url: "${pageContext.request.contextPath}/ch02/method",
+						method: "DELETE"
 					})
 					.done((data) => {});
 				}

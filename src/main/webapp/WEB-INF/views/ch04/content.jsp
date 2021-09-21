@@ -14,7 +14,7 @@
                 POST 방식으로 요청
             </div>
             <div class="card-body">
-                <form id="form0" action="method1" method="post" action="method1" onsubmit="checkData(this)">
+                <form id="form0" action="method1" method="post" onsubmit="checkData(this)">
                     <div class="input-group">
                         <div class="input-group-prepend"><span class="input-group-text">param1</span></div>
                         <input type="text" name="param1" class="form-control" value="">
@@ -169,6 +169,8 @@
                 function requestPost(form) {
                 	event.preventDefault();
                 	
+                	let checkResult = true;
+                	
                     const param1 = $("#param1").val();//주민번호 : xxxxxx-1,2,3,4xxxxxxx[1-4]{1}
                     const param2 = $("#param2").val();//년월일 : 19990426 
                     const param3 = $("#param3").val();//패스워드 : 알파벳으로 시작, 최소 8자 최대 10자
@@ -178,22 +180,24 @@
                     
                     const param1Error = $("#form1 .param1-error");
                     param1Error.html("");
-                    //^\d{6}[1-4]\d{6}$
                     
+                    //주민번호 유효성 검사
                     if (param1 === "") {
                     	param1Error.html("필수 입력 사항");
+                    	checkResult = false;
                     } else{
 	                   	 const pattern = /^\d{2}([0]\d|[1][0-2])([0][1-9]|[1-2]\d|[3][0-1])[-]*[1-4]\d{6}$/;
 	                	 const result = pattern.test(param1);
 	                	 if(result === false){
 	                		 param1Error.html("주민번호 형식이 아님");
-	                		 checkData = false;
+	                		 checkResult = false;
 	                	 }
 	                }
                     
                     const param2Error = document.querySelector("#form1 .param2-error");
                     param2Error.innerHTML = "";
                     
+                    //생년월일
                     if (param2 === "") {
                         param2Error.innerHTML = "필수 입력 사항";
                         checkResult = false;
@@ -206,7 +210,30 @@
 	                	 }
 	                }
                     
-                    if(checkData){
+                    const param3Error = $("#form1 .param3-error");
+                    param3Error.html("");
+                    
+                    if(param3 === "" || param3.trim() === ""){
+                    	param3Error.html("필수 입력 사항");
+                    	checkResult = false;
+                    }else{
+                    	const pattern = /^[a-zA-Z0-9]{8,10}$/;
+                    	const result = pattern.test(param3);
+                    	if(!result){
+                        	param3Error.html("비밀번호는 8-10자리 사이의 숫자와 대소문자로 구성되어있습니다.");
+							checkResult = false;
+                    	}
+                    }
+                    
+                    const param5Error = $("#form1 .param5-error");
+                    param5Error.html("");
+                    
+                    if(param5 === ""){
+                    	param5Error.html("필수 입력 사항");
+                    	checkResult="false";
+                    }
+                    
+                    if(checkResult){
                     	$.ajax({
                             url: "method1",
                             method: "post",
@@ -218,7 +245,9 @@
                                 param5,
                             }
                         })
-                        .done(() => { });
+                        .done((data) => {
+                        	window.location.href="${pageContext.request.contextPath}/ch04/content";
+                        });
                     }
                 }
             </script>
