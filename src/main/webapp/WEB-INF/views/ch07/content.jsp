@@ -33,8 +33,8 @@
 				JSTL(Java Standard Tag Library) : 조건처리, 반복처리
 			</div>
 			<div class="card-body">
-				<a href="useJstl" class="btn btn-info btn-sm">JSTL사용하기</a>
-				<a href="useJstl" class="btn btn-info btn-sm">JSTL사용하기</a>
+				<a href="useJstl1" class="btn btn-info btn-sm">JSTL사용하기</a>
+				<a href="useJstl2" class="btn btn-info btn-sm">JSTL사용하기</a>
 			</div>
 		</div>
 		

@@ -22,20 +22,15 @@
 			    </tr>
 			  </thead>
 			  
-			  
 			  <c:forEach var="board" items="${boardList}">
-			  	<%-- true면 넣고, false면 뺀다. --%>
-			  	<tbody>
-						 <tr>
-					      <th scope="row">${board.no}</th>
-					      <td>${board.no}</td>
-					      <td>${board.no}</td>
-					      <td>${board.no}</td>
-					      <td>${board.no}</td>
-					      <td><fmt:formatDate value=""/> ${board.no} pattern="yyyy-MM-dd/>"</td> 
-					    </tr>
-			 	 </c:forEach>
-			  </tbody>
+		          <tr>
+		            <td scope="row">${board.no}</td>
+		            <td>${board.title}</td>
+		            <td>${board.content}</td>
+		            <td>${board.writer}</td>
+		            <td><fmt:formatDate value="${board.date}" pattern="yyyy-MM-dd"/></td>
+		          </tr>
+	          </c:forEach>
 			  
 		</table>
 	</div>

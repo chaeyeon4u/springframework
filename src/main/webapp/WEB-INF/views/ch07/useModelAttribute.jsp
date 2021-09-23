@@ -12,11 +12,10 @@
 	</div>
 	<div class="card-body">
 		<ul>
-			<!-- @ModelView -> request영역에 저장되므로 ${}로 찾을 수 있다. -->
-			<c:forEach var="color" items="${colors}">
-				<li>${colors}</li>
-			</c:forEach>
-		</ul>
+          <c:forEach var="color" items="${colors}">
+            <li>${color}</li>
+          </c:forEach>
+        </ul>
 	</div>
 </div>
 

@@ -13,8 +13,6 @@ public class Ch07Board {
 		
 	}
 	
-	
-
 	public Ch07Board(int no, String title, String content, String writer, Date date) {
 		this.no = no;
 		this.title = title;
@@ -64,6 +62,4 @@ public class Ch07Board {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-
-	
 }

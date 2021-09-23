@@ -56,7 +56,7 @@
              $.ajax({
                 url:"getJson3"
              }).done((data)=>{
-                $("#content").html("<img src='${pageContext.request.contextPath}/resources/images/"+ data.fileName+"' width='200px'/>");
+            	 $("#content").html("<img src='${pageContext.request.contextPath}/resources/images/"+ data.fileName+"' width='200px'/>");
              });
           }
       </script>

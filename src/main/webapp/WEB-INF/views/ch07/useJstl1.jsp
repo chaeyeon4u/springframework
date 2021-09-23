@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
- --%>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  
 <%@ include file="/WEB-INF/views/common/header.jsp" %>
 
@@ -44,7 +43,7 @@
 				${status.last}<br/>           <!– 현재 루프가 마지막인지 반환 –> 
 			   --%>
 			   
-			  <c:forEach var="langs" items="${langs}" varStatus="status">
+			  <c:forEach var="lang" items="${languages}" varStatus="status">
 			  	<%-- true면 넣고, false면 뺀다. --%>
 			  	<c:if test="${status.first}">
 			  		<tbody>
@@ -53,7 +52,7 @@
 				      <th scope="row">${status.count}</th>
 				      <td>${lang}</td>
 				    </tr>
-				  <c:if test="${status.first}">
+				  <c:if test="${status.last}">
 				  	</tbody>
 				  </c:if>
 			  </c:forEach>

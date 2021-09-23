@@ -83,11 +83,12 @@ public class Ch06Controller {
 		return json;//뷰이름이 아니다! 응답바디(@ResponseBody)에 들어가는 내용이다
 	}
 	
-	//여기 코드 맞나 체크해보기
+	
 	@GetMapping("/getJson3")
 	public String getJson3() {
 		logger.info("실행");
 		
+		//AJAX는 Redirect로 응답받으면 안된다
 		return "redirect:/";
 	}
 }

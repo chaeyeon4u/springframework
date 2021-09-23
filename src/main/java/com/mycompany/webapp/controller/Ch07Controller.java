@@ -107,25 +107,18 @@ public class Ch07Controller {
 		
 		return "ch07/objectRead";
 	}
-	
-	@GetMapping("/objectSaveAndRead4")
-	public String objectSaveAndRead4(Model model) {
-		logger.info("실행");
 		
-		String[] languages = {"Java", "JavaScript", "SpringFramework", "Vue"};
-		model.addAttribute("langs", languages);
-		
-		return "ch07/useJstl";
-	}
-	
-	@GetMapping("/useJstl")
+	@GetMapping("/useJstl1")
 	public String useJstl(Model model) {
 		logger.info("실행");
 		
+		String[] languages = {"Java", "Javascript", "Springframework"};
+		model.addAttribute("languages", languages);
 		
 		return "ch07/useJstl1";
 	}
-	@GetMapping("/useJst2")
+	
+	@GetMapping("/useJstl2")
 	public String useJst2(Model model) {
 		logger.info("실행");
 		
@@ -136,11 +129,10 @@ public class Ch07Controller {
 		
 		model.addAttribute("boardList", list);
 		
-		
 		return "ch07/useJstl2";
 	}
 	
-	//공통 Attribute -> useModelAttribute1, useModelAttribute2에서 사용 가능
+	//공통 Attribute -> useModelAttribute1, useModelAttribute2 에서 사용 가능
 	//어떤 범위에 저장할까? : 요청이 달라도 쓸 수 있다 -> 하지만 request 범위
 	//요청 할 때마다 실행된다..!
 	@ModelAttribute("colors")//이름
@@ -151,17 +143,16 @@ public class Ch07Controller {
 	}
 	
 	@GetMapping("/useModelAttribute1")
-	public String useModelAttribute1() {//실행 횟수보려고 만든거 404 오류남
+	public String useModelAttribute1(Model model) {//실행 횟수보려고 만든거 404 오류남
 		logger.info("실행");
-		
-		//model.addAttribute("colors", colors);//collors 배열 지졍
 		
 		return "ch07/useModelAttribute";
 	}
 	
 	@GetMapping("/useModelAttribute2")
-	public String useModelAttribute2() {
+	public String useModelAttribute2(Model model){
 		logger.info("실행");
+		
 		return "ch07/useModelAttribute";
 	}
 	
